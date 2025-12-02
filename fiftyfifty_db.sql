@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2025 at 02:11 PM
+-- Generation Time: Dec 02, 2025 at 11:53 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,7 +38,7 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel-cache-spatie.permission.cache', 'a:3:{s:5:\"alias\";a:0:{}s:11:\"permissions\";a:0:{}s:5:\"roles\";a:0:{}}', 1764672095);
+('laravel-cache-spatie.permission.cache', 'a:3:{s:5:\"alias\";a:0:{}s:11:\"permissions\";a:0:{}s:5:\"roles\";a:0:{}}', 1764754196);
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2025_12_01_104840_create_subscriptions_table', 2),
 (8, '2025_12_01_104841_create_merchant_pages_table', 2),
 (9, '2025_12_01_104843_add_merchant_columns_to_users_table', 2),
-(10, '2025_12_01_115921_add_merchant_fields_to_users_table', 3);
+(10, '2025_12_01_115921_add_merchant_fields_to_users_table', 3),
+(11, '2025_12_02_043505_add_merchant_qr_fields_to_users_table', 4),
+(12, '2025_12_02_063109_create_packages_table', 5),
+(13, '2025_12_02_095524_create_subscription_packages_table', 6);
 
 -- --------------------------------------------------------
 
@@ -180,7 +183,40 @@ CREATE TABLE `model_has_roles` (
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 (1, 'App\\Models\\User', 1),
 (2, 'App\\Models\\User', 3),
+(2, 'App\\Models\\User', 4),
+(2, 'App\\Models\\User', 5),
+(2, 'App\\Models\\User', 6),
+(2, 'App\\Models\\User', 7),
+(2, 'App\\Models\\User', 8),
+(2, 'App\\Models\\User', 9),
+(2, 'App\\Models\\User', 10),
 (3, 'App\\Models\\User', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `packages`
+--
+
+CREATE TABLE `packages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `entries` int(11) NOT NULL,
+  `stripe_price_id` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `packages`
+--
+
+INSERT INTO `packages` (`id`, `name`, `price`, `entries`, `stripe_price_id`, `created_at`, `updated_at`) VALUES
+(1, 'Bronze', 10.00, 50, NULL, NULL, NULL),
+(2, 'Silver', 25.00, 200, NULL, NULL, NULL),
+(3, 'Gold', 50.00, 450, NULL, NULL, NULL),
+(4, 'Diamond', 100.00, 1000, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -262,8 +298,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('9rpIosQqIgYk0CBolyidth6HINYMS7STGNqSt8bU', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiam9ubk5tV1Q2VTlRbkN2cE00VjczaDhlMzhwekhZbHVybkhPOEpTTSI7czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC91c2VyLWRhc2hib2FyZCI7czo1OiJyb3V0ZSI7Tjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MjtzOjQ6ImF1dGgiO2E6MTp7czoyMToicGFzc3dvcmRfY29uZmlybWVkX2F0IjtpOjE3NjQ1ODI2NTU7fX0=', 1764582657),
-('MXqpdvGyiy0om5t7DmnonfAR3BAyMNEVSCntCoN7', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVkF3TXdoSHpaeTB4VXZnc1NEOUNrUmttdG5Hck1HdEE1S0luY2RsUyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mzc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi1kYXNoYm9hcmQiO3M6NToicm91dGUiO3M6MTU6ImFkbWluLmRhc2hib2FyZCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzY0NTkzMTc5O319', 1764593503);
+('XxH9l4kFVRHIwXjdxBCO7JxrWvGUu7HP8OA4my08', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNVNpVzVrSGp6end3cThkQnZGbEFwOUdqdU1iQVJ0VExxelZTazNiQSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9sb2dpbiI7czo1OiJyb3V0ZSI7czo1OiJsb2dpbiI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzY0NjcxMjU1O319', 1764671255),
+('zuN1AOlkS8sinaTPECX4ekEcXj02FREtbWM6llVv', 10, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoieW5IMzBqQzl2MXpDR20zTUlUMldxUWRodE9EUUU4elZCU05YQ2pMUCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6Mjp7czozOiJ1cmwiO3M6MzU6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9jaGVja291dC8xMC8xIjtzOjU6InJvdXRlIjtzOjg6ImNoZWNrb3V0Ijt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTA7czo0OiJhdXRoIjthOjE6e3M6MjE6InBhc3N3b3JkX2NvbmZpcm1lZF9hdCI7aToxNzY0NjcxNjE2O319', 1764672635);
 
 -- --------------------------------------------------------
 
@@ -279,6 +315,23 @@ CREATE TABLE `subscriptions` (
   `amount` decimal(10,2) NOT NULL,
   `entries_awarded` int(11) NOT NULL DEFAULT 0,
   `status` enum('active','cancelled','expired') NOT NULL DEFAULT 'active',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `subscription_packages`
+--
+
+CREATE TABLE `subscription_packages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(8,2) NOT NULL,
+  `entries` int(11) NOT NULL,
+  `stripe_price_id` varchar(255) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -302,6 +355,13 @@ CREATE TABLE `sweepstakes` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `sweepstakes`
+--
+
+INSERT INTO `sweepstakes` (`id`, `title`, `prize_title`, `prize_image`, `start_date`, `end_date`, `winner_user_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Iphone 17 pro', 'brand new phone', 'sweepstakes/CK81CR0Mmk7yZFzK6yyCD2pwv7SiNqh8z4gx0EWs.jpg', '2025-12-03', '2025-12-26', NULL, 'active', '2025-12-02 05:02:46', '2025-12-02 05:02:46');
+
 -- --------------------------------------------------------
 
 --
@@ -314,6 +374,8 @@ CREATE TABLE `users` (
   `business_name` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `website` varchar(255) DEFAULT NULL,
+  `landing_slug` varchar(255) DEFAULT NULL,
+  `qr_code` varchar(255) DEFAULT NULL,
   `status` enum('pending','approved','rejected') NOT NULL DEFAULT 'pending',
   `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -327,10 +389,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `business_name`, `phone`, `website`, `status`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'TARUN', NULL, NULL, NULL, 'pending', 'taruncws12@gmail.com', NULL, '$2y$12$MhkI4GEG5nQ7oYtgoKTjbOq0cWwjjtcy52XPfFnvmxCUt8VQ.sDtK', NULL, '2025-12-01 02:57:47', '2025-12-01 02:57:47'),
-(2, 'user', NULL, NULL, NULL, 'pending', 'user@gmail.com', NULL, '$2y$12$4W7MmRmPwhynF8trYgbgbOAOb.Fl/AAfFVU96oyTnraWBNmXevH0S', NULL, '2025-12-01 04:10:51', '2025-12-01 04:10:51'),
-(3, 'Merchant', NULL, NULL, NULL, 'approved', 'merchant@gmail.com', NULL, '$2y$12$5lY9STvO3gdtQuQFaLNGT.CtGWWuOSY7rqzT8m85jtqdywrGkf73a', NULL, '2025-12-01 04:12:03', '2025-12-01 06:49:54');
+INSERT INTO `users` (`id`, `name`, `business_name`, `phone`, `website`, `landing_slug`, `qr_code`, `status`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'TARUN', NULL, NULL, NULL, NULL, NULL, 'pending', 'taruncws12@gmail.com', NULL, '$2y$12$MhkI4GEG5nQ7oYtgoKTjbOq0cWwjjtcy52XPfFnvmxCUt8VQ.sDtK', NULL, '2025-12-01 02:57:47', '2025-12-01 02:57:47'),
+(2, 'user', NULL, NULL, NULL, NULL, NULL, 'pending', 'user@gmail.com', NULL, '$2y$12$4W7MmRmPwhynF8trYgbgbOAOb.Fl/AAfFVU96oyTnraWBNmXevH0S', NULL, '2025-12-01 04:10:51', '2025-12-01 04:10:51'),
+(3, 'Merchant', NULL, NULL, NULL, NULL, NULL, 'pending', 'merchant@gmail.com', NULL, '$2y$12$5lY9STvO3gdtQuQFaLNGT.CtGWWuOSY7rqzT8m85jtqdywrGkf73a', NULL, '2025-12-01 04:12:03', '2025-12-01 06:49:54'),
+(10, 'mohit', 'abcd', NULL, NULL, 'abcd', 'qr_10.svg', 'pending', 'mohitcws24@gmail.com', NULL, '$2y$12$D.eNpReT9CokeBxpvdByo.Rfs6S3uD6MmQXIzjjL8KVLOiZ5qbYu6', NULL, '2025-12-02 00:38:59', '2025-12-02 00:38:59');
 
 --
 -- Indexes for dumped tables
@@ -398,6 +461,12 @@ ALTER TABLE `model_has_roles`
   ADD KEY `model_has_roles_model_id_model_type_index` (`model_id`,`model_type`);
 
 --
+-- Indexes for table `packages`
+--
+ALTER TABLE `packages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_reset_tokens`
 --
 ALTER TABLE `password_reset_tokens`
@@ -440,6 +509,12 @@ ALTER TABLE `subscriptions`
   ADD KEY `subscriptions_user_id_foreign` (`user_id`);
 
 --
+-- Indexes for table `subscription_packages`
+--
+ALTER TABLE `subscription_packages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sweepstakes`
 --
 ALTER TABLE `sweepstakes`
@@ -479,7 +554,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `packages`
+--
+ALTER TABLE `packages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -500,16 +581,22 @@ ALTER TABLE `subscriptions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `subscription_packages`
+--
+ALTER TABLE `subscription_packages`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `sweepstakes`
 --
 ALTER TABLE `sweepstakes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
