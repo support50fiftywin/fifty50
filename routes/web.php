@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Middlewares\RoleMiddleware;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MerchantController;
+use App\Http\Controllers\ClaimEntryController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MerchantAuthController;
 use App\Http\Controllers\CheckoutController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Merchant\QrController;
 use App\Http\Controllers\Merchant\LandingPreviewController;
 use App\Http\Controllers\Merchant\EarningsController;
 
+
 	Route::middleware(['auth', 'role:Merchant'])->prefix('merchant')->name('merchant.')->group(function () {
 
 		// Landing Page Preview
@@ -28,6 +30,11 @@ use App\Http\Controllers\Merchant\EarningsController;
 		// Earnings & Referrals
 		Route::get('/earnings', [EarningsController::class, 'index'])
 			->name('earnings');
+	});
+
+	Route::middleware('auth')->group(function () {
+    Route::get('/claim-entries', [ClaimEntryController::class, 'showForm'])->name('claim.entries');
+    Route::post('/claim-entries', [ClaimEntryController::class, 'claim'])->name('claim.entries.submit');
 	});
 
 	Route::middleware(['auth', 'role:Merchant'])->prefix('merchant')->name('merchant.')->group(function () {
@@ -124,9 +131,9 @@ use App\Http\Controllers\Merchant\EarningsController;
 		Route::get('/admin/sweepstakes', [SweepstakeController::class, 'index'])->name('admin.sweepstakes.index');
 		Route::get('/admin/sweepstakes/create', [SweepstakeController::class, 'create'])->name('admin.sweepstakes.create');
 		Route::post('/admin/sweepstakes/store', [SweepstakeController::class, 'store'])->name('admin.sweepstakes.store');
-		Route::get('/admin/sweepstakes/{id}/edit', [SweepstakesController::class, 'edit'])->name('admin.sweepstakes.edit');
-		Route::post('/admin/sweepstakes/{id}/update', [SweepstakesController::class, 'update'])->name('admin.sweepstakes.update');
-		Route::get('/admin/sweepstakes/{id}/close', [SweepstakesController::class, 'close'])->name('admin.sweepstakes.close');
+		Route::get('/admin/sweepstakes/{id}/edit', [SweepstakeController::class, 'edit'])->name('admin.sweepstakes.edit');
+		Route::post('/admin/sweepstakes/{id}/update', [SweepstakeController::class, 'update'])->name('admin.sweepstakes.update');
+		Route::get('/admin/sweepstakes/{id}/close', [SweepstakeController::class, 'close'])->name('admin.sweepstakes.close');
 	});
 
 	Route::middleware(['auth', 'role:User'])->get('/checkout/{merchant}', [StripeController::class, 'checkout'])->name('stripe.checkout');

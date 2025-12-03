@@ -59,6 +59,12 @@
         <h3 class="fw-bold mt-4">🎁 No active sweepstake right now</h3>
         <p>Please check back soon!</p>
     @endif
+	
+    @if(session('unclaimed_entries'))
+    <a href="{{ route('claim.entries') }}" class="btn btn-success btn-lg">
+        Claim Your Entries
+    </a>
+	@endif
 
 </div>
 
