@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'log'),
+    'default' => env('MAIL_MAILER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,15 +38,15 @@ return [
     'mailers' => [
 
         'smtp' => [
-            'transport' => 'smtp',
-            'scheme' => env('MAIL_SCHEME'),
-            'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', '127.0.0.1'),
-            'port' => env('MAIL_PORT', 2525),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'transport'    => 'smtp',
+            'url'          => env('MAIL_URL'),
+            'host'         => env('MAIL_HOST', '127.0.0.1'),
+            'port'         => env('MAIL_PORT', 2525),
+            'encryption'   => env('MAIL_ENCRYPTION', 'tls'),
+            'username'     => env('MAIL_USERNAME'),
+            'password'     => env('MAIL_PASSWORD'),
+            'timeout'      => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
         'ses' => [
@@ -55,7 +55,9 @@ return [
 
         'postmark' => [
             'transport' => 'postmark',
+
             // 'message_stream_id' => env('POSTMARK_MESSAGE_STREAM_ID'),
+
             // 'client' => [
             //     'timeout' => 5,
             // ],
@@ -67,12 +69,12 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+            'path'      => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
         ],
 
         'log' => [
             'transport' => 'log',
-            'channel' => env('MAIL_LOG_CHANNEL'),
+            'channel'   => env('MAIL_LOG_CHANNEL'),
         ],
 
         'array' => [
@@ -81,22 +83,21 @@ return [
 
         'failover' => [
             'transport' => 'failover',
+
             'mailers' => [
                 'smtp',
                 'log',
             ],
-            'retry_after' => 60,
         ],
 
         'roundrobin' => [
             'transport' => 'roundrobin',
+
             'mailers' => [
                 'ses',
                 'postmark',
             ],
-            'retry_after' => 60,
         ],
-
     ],
 
     /*
@@ -111,8 +112,39 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS'),
+        'name'    => env('MAIL_FROM_NAME'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global "Admin" Address
+    |--------------------------------------------------------------------------
+    |
+    | General admin related admins, such as order notifications.
+    |
+    */
+
+    'admin' => [
+        'address' => env('ADMIN_MAIL_ADDRESS'),
+        'name'    => env('ADMIN_MAIL_NAME', 'Admin'),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Global "Contact" Address
+    |--------------------------------------------------------------------------
+    |
+    | General contact address used in the footer of the email templates.
+
+    | Here, you may specify a name and address that is used globally for
+    | all e-mails that are sent by your application.
+    |
+    */
+
+    'contact' => [
+        'address' => env('CONTACT_MAIL_ADDRESS'),
+        'name'    => env('CONTACT_MAIL_NAME', 'Contact'),
     ],
 
 ];
