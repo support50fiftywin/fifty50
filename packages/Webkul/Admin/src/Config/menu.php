@@ -11,16 +11,6 @@ return [
         'sort'       => 1,
         'icon'       => 'icon-dashboard',
     ],
-	/**
-     * sweepstakes.
-     */
-	 [
-    'key'   => 'sweepstakes',
-    'name'  => 'admin::app.components.layouts.sidebar.sweepstakes',
-    'route' => 'admin.sweepstakes.index',
-    'sort'  => 1,
-	'icon'  => 'fa fa-trophy',
-	],
 	 
     /**
      * Sales.

@@ -24,7 +24,20 @@ return [
                 'package_assets_directory' => 'src/Resources/assets',
             ],
         ],
+		
+		'fiftyfifty' => [
+            'name'        => 'fiftyfifty',
+            'assets_path' => 'public/themes/sweepstakes/fiftyfifty',
+            'views_path'  => 'resources/themes/fiftyfifty/views',
+
+            'vite'        => [
+                'hot_file'                 => 'sweepstakes-fiftyfifty-vite.hot',
+                'build_directory'          => 'themes/sweepstakes/fiftyfifty/build',
+                'package_assets_directory' => 'src/Resources/assets',
+            ],
+        ],
     ],
+	
 
     /*
     |--------------------------------------------------------------------------

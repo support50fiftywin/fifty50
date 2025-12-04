@@ -28,5 +28,10 @@ return [
             'build_directory'          => 'themes/installer/default/build',
             'package_assets_directory' => 'src/Resources/assets',
         ],
+		'sweepstakes' => [
+			'hot_file'                 => 'sweepstakes-fiftyfity-vite.hot',
+			'build_directory'          => 'themes/sweepstakes-fiftyfity/build',
+			'package_assets_directory' => 'src/Resources/assets',
+		],
     ],
 ];

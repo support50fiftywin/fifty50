@@ -8,7 +8,7 @@ class SweepstakesController extends Controller
 {
     public function index()
     { 
-	dd('hedfdfllo');
+	
        
 	   return "Sweepstakes Module Working!";
     }

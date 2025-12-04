@@ -2,18 +2,21 @@
 
 namespace Webkul\Sweepstakes\Http\Controllers\Admin;
 
-use Illuminate\Routing\Controller;
+use Webkul\Admin\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    /**
-     * Display the sweepstakes settings page (e.g., prize scheduler config).
-     *
-     * @return \Illuminate\View\View
-     */
     public function index()
     {
-        // This will later display your configuration form for the prize scheduler.
-        return view('sweepstakes::admin.settings.index');
+        return view('sweepstakes::admin.settings');
+    }
+
+    public function save(Request $request)
+    {
+        // You can store settings in DB later
+
+        session()->flash('success', 'Settings saved!');
+        return back();
     }
 }

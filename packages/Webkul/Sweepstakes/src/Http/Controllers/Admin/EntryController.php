@@ -2,19 +2,21 @@
 
 namespace Webkul\Sweepstakes\Http\Controllers\Admin;
 
-use Illuminate\Routing\Controller;
+use Webkul\Sweepstakes\Models\Entry;
+use Webkul\Admin\Http\Controllers\Controller;
 
 class EntryController extends Controller
 {
-    /**
-     * Display a listing of all entries (Entry Viewer).
-     *
-     * @return \Illuminate\View\View
-     */
     public function index()
     {
-        // For now, this just returns a blank view to confirm the route works.
-        // You will later replace this with a DataGrid view.
-        return view('sweepstakes::admin.entries.index');
+        $entries = Entry::latest()->paginate(20);
+
+        return view('sweepstakes::admin.entries.index', compact('entries'));
+    }
+	
+	 public function export()
+    {
+        // You can add CSV export logic here later
+        return back()->with('success', 'Export coming soon!');
     }
 }

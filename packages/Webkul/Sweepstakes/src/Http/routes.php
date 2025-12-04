@@ -10,14 +10,17 @@ use Webkul\Sweepstakes\Http\Controllers\Admin\EntryController;
 Route::get('/test-sweep', function() {
     return "Sweepstakes package loaded!";
 });
+Route::get('/sweepstakes', function () {
+        return view('sweepstakes::index');
+    })->name('admin.sweepstakes.index');
 Route::group([
     'middleware' => ['admin'],
     'prefix'     => config('app.admin_url', 'admin'),
 ], function () {
     // --- Sweepstakes Routes (Existing) ---
-    Route::get('sweepstakes', [SweepstakesController::class, 'index'])->name('admin.sweepstakes.index');
-    Route::get('sweepstakes/create', [SweepstakesController::class, 'create'])->name('admin.sweepstakes.create');
-    Route::post('sweepstakes/store', [SweepstakesController::class, 'store'])->name('admin.sweepstakes.store');
+    // Route::get('sweepstakes', [SweepstakesController::class, 'index'])->name('admin.sweepstakes.index');
+    // Route::get('sweepstakes/create', [SweepstakesController::class, 'create'])->name('admin.sweepstakes.create');
+    // Route::post('sweepstakes/store', [SweepstakesController::class, 'store'])->name('admin.sweepstakes.store');
 
     // --- Entries Routes (NEW) ---
     Route::prefix('sweepstakes/entries')->group(function () {
@@ -30,5 +33,8 @@ Route::group([
 	Route::prefix('sweepstakes/settings')->group(function () {
         Route::get('/', [SettingController::class, 'index'])->name('admin.sweepstakes.settings.index');
     });
+	
+	
+
 
 });
