@@ -4706,6 +4706,7 @@ return [
                 'transactions'             => 'Transactions',
                 'url-rewrites'             => 'URL Rewrites',
                 'users'                    => 'Users',
+				'sweepstakes' 			   => 'Sweepstakes', 
             ],
 
             'powered-by' => [

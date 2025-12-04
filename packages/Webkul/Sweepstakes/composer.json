@@ -1,0 +1,16 @@
+{
+    "name": "webkul/sweepstakes",
+    "description": "Sweepstakes module for Bagisto",
+    "autoload": {
+        "psr-4": {
+            "Webkul\\Sweepstakes\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\Sweepstakes\\Providers\\SweepstakesServiceProvider"
+            ]
+        }
+    }
+}

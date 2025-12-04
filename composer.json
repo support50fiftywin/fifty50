@@ -95,8 +95,13 @@
             "Webkul\\SocialShare\\": "packages/Webkul/SocialShare/src",
             "Webkul\\Tax\\": "packages/Webkul/Tax/src",
             "Webkul\\Theme\\": "packages/Webkul/Theme/src",
-            "Webkul\\User\\": "packages/Webkul/User/src"
-        }
+            "Webkul\\User\\": "packages/Webkul/User/src",
+			"Webkul\\Sweepstakes\\": "packages/Webkul/Sweepstakes/src"
+        },
+		"files": [
+        "packages/Webkul/Sweepstakes/src/Providers/SweepstakesServiceProvider.php"
+    ]
+		
     },
     "autoload-dev": {
         "psr-4": {

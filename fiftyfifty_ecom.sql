@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2025 at 02:35 PM
+-- Generation Time: Dec 04, 2025 at 11:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -997,7 +997,7 @@ CREATE TABLE `channels` (
 --
 
 INSERT INTO `channels` (`id`, `code`, `timezone`, `theme`, `hostname`, `logo`, `favicon`, `home_seo`, `is_maintenance_on`, `allowed_ips`, `root_category_id`, `default_locale_id`, `base_currency_id`, `created_at`, `updated_at`) VALUES
-(1, 'default', NULL, 'default', 'http://127.0.0.1:8000', 'channel/1/nxOEd3emzwlEjuZqaxxV13bh4iHrBqgaEWrvENMZ.png', NULL, NULL, 0, '', 1, 1, 1, '2025-12-03 11:49:34', '2025-12-03 13:33:26');
+(1, 'default', NULL, 'default', 'http://127.0.0.1:8000', 'channel/1/HEQBDNQgO3UfqpJwOFedr2xth0XoAD5PKSvPFjy9.png', NULL, NULL, 0, '', 1, 1, 1, '2025-12-03 11:49:34', '2025-12-04 07:21:39');
 
 -- --------------------------------------------------------
 
@@ -1222,7 +1222,9 @@ INSERT INTO `core_config` (`id`, `code`, `value`, `channel_code`, `locale_code`,
 (17, 'customer.settings.social_login.enable_twitter', '1', 'default', NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
 (18, 'customer.settings.social_login.enable_google', '1', 'default', NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
 (19, 'customer.settings.social_login.enable_linkedin', '1', 'default', NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
-(20, 'customer.settings.social_login.enable_github', '1', 'default', NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34');
+(20, 'customer.settings.social_login.enable_github', '1', 'default', NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
+(21, 'general.design.categories.category_view', 'default', NULL, NULL, '2025-12-04 04:21:44', '2025-12-04 04:21:44'),
+(22, 'general.design.admin_logo.logo_image', 'configuration/EHqcuOuXu44cJGkjlMfsUza4j33WM2Yf8hFz5X1V.png', NULL, NULL, '2025-12-04 04:21:44', '2025-12-04 08:11:03');
 
 -- --------------------------------------------------------
 
@@ -2793,7 +2795,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (159, '2025_09_05_000300_add_indexes_to_product_media_and_attributes', 1),
 (160, '2025_09_05_000400_add_indexes_to_attributes_and_product_types', 1),
 (161, '2025_09_05_000500_add_indexes_to_product_grouped_products_and_product_bundle_option_products', 1),
-(162, '2025_09_05_000500_add_indexes_to_url_rewrites_and_visits', 1);
+(162, '2025_09_05_000500_add_indexes_to_url_rewrites_and_visits', 1),
+(163, '2025_01_01_000000_create_sweepstakes_table', 2);
 
 -- --------------------------------------------------------
 
@@ -2815,8 +2818,8 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `type`, `read`, `order_id`, `created_at`, `updated_at`) VALUES
-(1, 'order', 0, 1, '2025-12-03 13:11:41', '2025-12-03 13:11:41'),
-(2, 'order', 0, 2, '2025-12-03 13:14:38', '2025-12-03 13:14:38');
+(1, 'order', 1, 1, '2025-12-03 13:11:41', '2025-12-03 13:42:19'),
+(2, 'order', 1, 2, '2025-12-03 13:14:38', '2025-12-03 13:42:19');
 
 -- --------------------------------------------------------
 
@@ -4198,6 +4201,24 @@ CREATE TABLE `subscribers_list` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sweepstakes`
+--
+
+CREATE TABLE `sweepstakes` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `prize_title` varchar(255) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `status` enum('active','closed','scheduled') NOT NULL DEFAULT 'scheduled',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tax_categories`
 --
 
@@ -5312,6 +5333,12 @@ ALTER TABLE `subscribers_list`
   ADD KEY `subscribers_list_channel_id_foreign` (`channel_id`);
 
 --
+-- Indexes for table `sweepstakes`
+--
+ALTER TABLE `sweepstakes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tax_categories`
 --
 ALTER TABLE `tax_categories`
@@ -5612,7 +5639,7 @@ ALTER TABLE `compare_items`
 -- AUTO_INCREMENT for table `core_config`
 --
 ALTER TABLE `core_config`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -5762,7 +5789,7 @@ ALTER TABLE `marketing_templates`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -5997,6 +6024,12 @@ ALTER TABLE `sitemaps`
 --
 ALTER TABLE `subscribers_list`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sweepstakes`
+--
+ALTER TABLE `sweepstakes`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tax_categories`

@@ -11,10 +11,22 @@ return [
         'sort'       => 1,
         'icon'       => 'icon-dashboard',
     ],
-
+	/**
+     * sweepstakes.
+     */
+	 [
+    'key'   => 'sweepstakes',
+    'name'  => 'admin::app.components.layouts.sidebar.sweepstakes',
+    'route' => 'admin.sweepstakes.index',
+    'sort'  => 1,
+	'icon'  => 'fa fa-trophy',
+	],
+	 
     /**
      * Sales.
      */
+	 
+	
     [
         'key'        => 'sales',
         'name'       => 'admin::app.components.layouts.sidebar.sales',
@@ -27,7 +39,10 @@ return [
         'route'      => 'admin.sales.orders.index',
         'sort'       => 1,
         'icon'       => '',
-    ], [
+    ], 
+	
+	
+	[
         'key'        => 'sales.shipments',
         'name'       => 'admin::app.components.layouts.sidebar.shipments',
         'route'      => 'admin.sales.shipments.index',

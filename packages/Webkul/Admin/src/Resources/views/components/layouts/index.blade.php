@@ -53,7 +53,8 @@
         as="image"
         href="{{ url('cache/logo/bagisto.png') }}"
     >
-
+	@include('sweepstakes::admin.custom-styles')
+	
     @if ($favicon = core()->getConfigData('general.design.admin_logo.favicon'))
         <link
             type="image/x-icon"
@@ -71,7 +72,7 @@
     @endif
 
     @stack('styles')
-
+		
     <style>
         {!! core()->getConfigData('general.content.custom_scripts.custom_css') !!}
     </style>
