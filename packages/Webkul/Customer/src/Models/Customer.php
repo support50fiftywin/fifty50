@@ -18,10 +18,12 @@ use Webkul\Product\Models\ProductReviewProxy;
 use Webkul\Sales\Models\InvoiceProxy;
 use Webkul\Sales\Models\OrderProxy;
 use Webkul\Shop\Mail\Customer\ResetPasswordNotification;
+use Bavix\Wallet\Interfaces\Customer as WalletCustomer;
+use Bavix\Wallet\Traits\HasWallet;
 
 class Customer extends Authenticatable implements CustomerContract
 {
-    use HasApiTokens, HasFactory, Notifiable, Visitor;
+    use HasApiTokens, HasFactory, Notifiable, Visitor, HasWallet;
 
     /**
      * The table associated with the model.

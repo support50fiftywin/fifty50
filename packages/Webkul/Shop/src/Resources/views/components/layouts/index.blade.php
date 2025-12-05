@@ -86,11 +86,15 @@
 
                             <div class="h-6 w-px bg-gray-300 mx-1 hidden xl:block"></div>
                             
-                            @auth('customer')
-                                <a href="{{ route('shop.customer.profile.index') }}" class="text-sm font-medium hover:text-brand-accent block uppercase">Account</a>
-                            @else
-                                <a href="{{ route('shop.customer.session.index') }}" class="text-sm font-medium hover:text-brand-accent block uppercase">Login</a>
-                            @endauth
+                           @auth('customer')
+							<a href="{{ route('shop.customers.account.index') }}" class="text-sm font-medium hover:text-brand-accent block uppercase">
+								Account
+							</a>
+						@else
+							<a href="{{ route('shop.customers.session.index') }}" class="text-sm font-medium hover:text-brand-accent block uppercase">
+								Login
+							</a>
+						@endauth
 
                             <button class="relative p-2 hover:text-brand-accent transition-colors">
                                 <i class="text-lg">

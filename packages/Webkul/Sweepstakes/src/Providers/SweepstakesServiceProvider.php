@@ -10,7 +10,7 @@ class SweepstakesServiceProvider extends ServiceProvider
     public function boot()
     {
         // Load routes
-        //$this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
 		$this->loadRoutesFrom(__DIR__ . '/../Routes/admin-routes.php');
         // Load views
         $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'sweepstakes');
@@ -43,10 +43,15 @@ class SweepstakesServiceProvider extends ServiceProvider
 			__DIR__ . '/../Resources/views' => resource_path('themes/sweepstakes/views'),
 		], 'public'); 
 		
+		 \Webkul\Customer\Models\Customer::resolveRelationUsing('walletAccount', function ($customer) {
+        return $customer->hasOne(\Webkul\Sweepstakes\Models\CustomerWallet::class, 'customer_id');
+		});
+	
     }
 
     public function register()
     {
-        //
+       $this->app->register(\Webkul\Sweepstakes\Providers\EventServiceProvider::class);
+	  //
     }
 }

@@ -4,12 +4,26 @@ use Illuminate\Support\Facades\Route;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Sweepstakes\Http\Controllers\SweepstakesController;
 use Webkul\Sweepstakes\Http\Controllers\Admin\EntryController;
+use Webkul\Customer\Models\Customer;
 // Route::group(['middleware' => ['web'], 'prefix' => 'sweepstakes'], function () {
     // Route::get('/', [SweepstakesController::class, 'index'])->name('sweepstakes.index');
 // });
 Route::get('/test-sweep', function() {
     return "Sweepstakes package loaded!";
 });
+Route::get('/wallet-test', function () {
+
+    $customer = Customer::first();
+
+    // Deposit
+    $customer->wallet->deposit(50);
+
+    return [
+        'wallet_balance' => $customer->wallet->balanceInt, 
+        'raw' => $customer->wallet,
+    ];
+});
+
 Route::get('/sweepstakes', function () {
         return view('sweepstakes::index');
     })->name('admin.sweepstakes.index');
@@ -35,6 +49,8 @@ Route::group([
     });
 	
 	
+
+
 
 
 });

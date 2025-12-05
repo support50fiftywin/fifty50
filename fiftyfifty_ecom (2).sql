@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2025 at 11:05 AM
+-- Generation Time: Dec 05, 2025 at 11:08 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -997,7 +997,7 @@ CREATE TABLE `channels` (
 --
 
 INSERT INTO `channels` (`id`, `code`, `timezone`, `theme`, `hostname`, `logo`, `favicon`, `home_seo`, `is_maintenance_on`, `allowed_ips`, `root_category_id`, `default_locale_id`, `base_currency_id`, `created_at`, `updated_at`) VALUES
-(1, 'default', NULL, 'default', 'http://127.0.0.1:8000', 'channel/1/HEQBDNQgO3UfqpJwOFedr2xth0XoAD5PKSvPFjy9.png', NULL, NULL, 0, '', 1, 1, 1, '2025-12-03 11:49:34', '2025-12-04 07:21:39');
+(1, 'default', NULL, 'fiftyfifty', 'http://127.0.0.1:8000', 'channel/1/HEQBDNQgO3UfqpJwOFedr2xth0XoAD5PKSvPFjy9.png', NULL, NULL, 0, '', 1, 1, 1, '2025-12-03 11:49:34', '2025-12-04 16:00:56');
 
 -- --------------------------------------------------------
 
@@ -1105,7 +1105,8 @@ INSERT INTO `cms_pages` (`id`, `layout`, `created_at`, `updated_at`) VALUES
 (7, NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
 (8, NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
 (9, NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
-(10, NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34');
+(10, NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
+(11, NULL, '2025-12-04 16:51:25', '2025-12-04 16:51:25');
 
 -- --------------------------------------------------------
 
@@ -1132,7 +1133,8 @@ INSERT INTO `cms_page_channels` (`cms_page_id`, `channel_id`) VALUES
 (7, 1),
 (8, 1),
 (9, 1),
-(10, 1);
+(10, 1),
+(11, 1);
 
 -- --------------------------------------------------------
 
@@ -1166,7 +1168,8 @@ INSERT INTO `cms_page_translations` (`id`, `page_title`, `url_key`, `html_conten
 (7, 'What\'s New', 'whats-new', '<div class=\"static-container\"><div class=\"mb-5\">What\'s New page content</div></div>', 'What\'s New', '', 'new', 'en', 7),
 (8, 'Payment Policy', 'payment-policy', '<div class=\"static-container\"><div class=\"mb-5\">Payment Policy Page Content</div></div>', 'Payment Policy', '', 'payment, policy', 'en', 8),
 (9, 'Shipping Policy', 'shipping-policy', '<div class=\"static-container\"><div class=\"mb-5\">Shipping Policy Page Content</div></div>', 'Shipping Policy', '', 'shipping, policy', 'en', 9),
-(10, 'Privacy Policy', 'privacy-policy', '<div class=\"static-container\"><div class=\"mb-5\">Privacy Policy Page Content</div></div>', 'Privacy Policy', '', 'privacy, policy', 'en', 10);
+(10, 'Privacy Policy', 'privacy-policy', '<div class=\"static-container\"><div class=\"mb-5\">Privacy Policy Page Content</div></div>', 'Privacy Policy', '', 'privacy, policy', 'en', 10),
+(11, 'Dr Paul Newman', 'dds', '<p>fgfdgdf</p>', '', '', '', 'en', 11);
 
 -- --------------------------------------------------------
 
@@ -1224,7 +1227,17 @@ INSERT INTO `core_config` (`id`, `code`, `value`, `channel_code`, `locale_code`,
 (19, 'customer.settings.social_login.enable_linkedin', '1', 'default', NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
 (20, 'customer.settings.social_login.enable_github', '1', 'default', NULL, '2025-12-03 11:49:34', '2025-12-03 11:49:34'),
 (21, 'general.design.categories.category_view', 'default', NULL, NULL, '2025-12-04 04:21:44', '2025-12-04 04:21:44'),
-(22, 'general.design.admin_logo.logo_image', 'configuration/EHqcuOuXu44cJGkjlMfsUza4j33WM2Yf8hFz5X1V.png', NULL, NULL, '2025-12-04 04:21:44', '2025-12-04 08:11:03');
+(23, 'general.design.admin_logo.logo_image', 'configuration/RagqtTwlpEdAeeqyaEUmJWeK5jrCKpR3zCibDdcG.png', NULL, NULL, '2025-12-05 05:20:54', '2025-12-05 05:20:54'),
+(24, 'catalog.rich_snippets.products.enable', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(25, 'catalog.rich_snippets.products.show_sku', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(26, 'catalog.rich_snippets.products.show_weight', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(27, 'catalog.rich_snippets.products.show_categories', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(28, 'catalog.rich_snippets.products.show_images', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(29, 'catalog.rich_snippets.products.show_reviews', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(30, 'catalog.rich_snippets.products.show_ratings', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(31, 'catalog.rich_snippets.products.show_offers', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(32, 'catalog.rich_snippets.categories.enable', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32'),
+(33, 'catalog.rich_snippets.categories.show_search_input_field', '1', NULL, NULL, '2025-12-05 10:02:32', '2025-12-05 10:02:32');
 
 -- --------------------------------------------------------
 
@@ -2276,6 +2289,18 @@ CREATE TABLE `customer_social_accounts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customer_wallets`
+--
+
+CREATE TABLE `customer_wallets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `datagrid_saved_filters`
 --
 
@@ -2796,7 +2821,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (160, '2025_09_05_000400_add_indexes_to_attributes_and_product_types', 1),
 (161, '2025_09_05_000500_add_indexes_to_product_grouped_products_and_product_bundle_option_products', 1),
 (162, '2025_09_05_000500_add_indexes_to_url_rewrites_and_visits', 1),
-(163, '2025_01_01_000000_create_sweepstakes_table', 2);
+(163, '2025_01_01_000000_create_sweepstakes_table', 2),
+(164, '2025_01_02_000000_create_entries_table', 3),
+(165, '2018_11_06_222923_create_transactions_table', 4),
+(166, '2018_11_07_192923_create_transfers_table', 4),
+(167, '2018_11_15_124230_create_wallets_table', 4),
+(168, '2021_11_02_202021_update_wallets_uuid_table', 4),
+(169, '2023_12_30_113122_extra_columns_removed', 4),
+(170, '2023_12_30_204610_soft_delete', 4),
+(171, '2024_01_24_185401_add_extra_column_in_transfer', 4),
+(172, '2025_12_05_133946_create_customer_wallets_table', 5),
+(173, '2025_12_05_145642_add_entries_to_products_table', 6);
 
 -- --------------------------------------------------------
 
@@ -3071,6 +3106,7 @@ CREATE TABLE `products` (
   `parent_id` int(10) UNSIGNED DEFAULT NULL,
   `attribute_family_id` int(10) UNSIGNED DEFAULT NULL,
   `additional` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`additional`)),
+  `entries` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3079,18 +3115,18 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `sku`, `type`, `parent_id`, `attribute_family_id`, `additional`, `created_at`, `updated_at`) VALUES
-(1, 'SP-001', 'simple', NULL, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(2, 'SP-002', 'simple', NULL, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(3, 'SP-003', 'simple', NULL, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(4, 'SP-004', 'simple', NULL, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(5, 'GP-001', 'grouped', NULL, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(6, 'BP-001', 'bundle', NULL, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(7, 'CP-001', 'configurable', NULL, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(8, 'SP-005', 'simple', 7, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(9, 'SP-006', 'simple', 7, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(10, 'SP-007', 'simple', 7, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
-(11, 'SP-008', 'simple', 7, 1, NULL, '2025-12-03 11:50:10', '2025-12-03 11:50:10');
+INSERT INTO `products` (`id`, `sku`, `type`, `parent_id`, `attribute_family_id`, `additional`, `entries`, `created_at`, `updated_at`) VALUES
+(1, 'SP-001', 'simple', NULL, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(2, 'SP-002', 'simple', NULL, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(3, 'SP-003', 'simple', NULL, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(4, 'SP-004', 'simple', NULL, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(5, 'GP-001', 'grouped', NULL, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(6, 'BP-001', 'bundle', NULL, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(7, 'CP-001', 'configurable', NULL, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(8, 'SP-005', 'simple', 7, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(9, 'SP-006', 'simple', 7, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(10, 'SP-007', 'simple', 7, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10'),
+(11, 'SP-008', 'simple', 7, 1, NULL, 0, '2025-12-03 11:50:10', '2025-12-03 11:50:10');
 
 -- --------------------------------------------------------
 
@@ -4077,7 +4113,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `description`, `permission_type`, `permissions`, `created_at`, `updated_at`) VALUES
 (1, 'Administrator', 'This role users will have all the access', 'all', NULL, NULL, NULL),
-(2, 'Merchant', 'Merchant', 'custom', '[\"sales\",\"sales.orders\",\"sales.orders.create\",\"sales.orders.view\",\"sales.orders.cancel\",\"sales.invoices\",\"sales.invoices.view\",\"sales.invoices.create\",\"sales.shipments\",\"sales.shipments.view\",\"sales.shipments.create\",\"sales.refunds\",\"sales.refunds.view\",\"sales.refunds.create\",\"sales.transactions\",\"sales.transactions.view\",\"catalog\",\"catalog.products\",\"catalog.products.create\",\"catalog.products.copy\",\"catalog.products.edit\",\"catalog.products.delete\",\"catalog.categories\",\"catalog.categories.create\",\"catalog.categories.edit\",\"catalog.categories.delete\",\"catalog.attributes\",\"catalog.attributes.create\",\"catalog.attributes.edit\",\"catalog.attributes.delete\",\"catalog.families\",\"catalog.families.create\",\"catalog.families.edit\",\"catalog.families.delete\",\"customers\",\"customers.customers\",\"customers.customers.create\",\"customers.customers.edit\",\"customers.customers.delete\",\"customers.addresses\",\"customers.addresses.create\",\"customers.addresses.edit\",\"customers.addresses.delete\",\"customers.note\",\"customers.groups\",\"customers.groups.create\",\"customers.groups.edit\",\"customers.groups.delete\",\"customers.reviews\",\"customers.reviews.edit\",\"customers.reviews.delete\",\"customers.gdpr_requests\",\"customers.gdpr_requests.edit\",\"customers.gdpr_requests.delete\",\"marketing\",\"marketing.promotions\",\"marketing.promotions.cart_rules\",\"marketing.promotions.cart_rules.create\",\"marketing.promotions.cart_rules.copy\",\"marketing.promotions.cart_rules.edit\",\"marketing.promotions.cart_rules.delete\",\"marketing.promotions.catalog_rules\",\"marketing.promotions.catalog_rules.create\",\"marketing.promotions.catalog_rules.edit\",\"marketing.promotions.catalog_rules.delete\",\"marketing.communications\",\"marketing.communications.email_templates\",\"marketing.communications.email_templates.create\",\"marketing.communications.email_templates.edit\",\"marketing.communications.email_templates.delete\",\"marketing.communications.events\",\"marketing.communications.events.create\",\"marketing.communications.events.edit\",\"marketing.communications.events.delete\",\"marketing.communications.campaigns\",\"marketing.communications.campaigns.create\",\"marketing.communications.campaigns.edit\",\"marketing.communications.campaigns.delete\",\"marketing.communications.subscribers\",\"marketing.communications.subscribers.edit\",\"marketing.communications.subscribers.delete\",\"marketing.search_seo\",\"marketing.search_seo.url_rewrites\",\"marketing.search_seo.url_rewrites.create\",\"marketing.search_seo.url_rewrites.edit\",\"marketing.search_seo.url_rewrites.delete\",\"marketing.search_seo.search_terms\",\"marketing.search_seo.search_terms.create\",\"marketing.search_seo.search_terms.edit\",\"marketing.search_seo.search_terms.delete\",\"marketing.search_seo.search_synonyms\",\"marketing.search_seo.search_synonyms.create\",\"marketing.search_seo.search_synonyms.edit\",\"marketing.search_seo.search_synonyms.delete\",\"marketing.search_seo.sitemaps\",\"marketing.search_seo.sitemaps.create\",\"marketing.search_seo.sitemaps.edit\",\"marketing.search_seo.sitemaps.delete\",\"reporting\",\"reporting.sales\",\"reporting.customers\",\"reporting.products\",\"cms\",\"cms.create\",\"cms.edit\",\"cms.delete\",\"settings\",\"settings.channels\",\"settings.channels.create\",\"settings.channels.edit\",\"settings.channels.delete\",\"settings.themes\",\"settings.themes.create\",\"settings.themes.edit\",\"settings.themes.delete\",\"settings.taxes\",\"settings.taxes.tax_categories\",\"settings.taxes.tax_categories.create\",\"settings.taxes.tax_categories.edit\",\"settings.taxes.tax_categories.delete\",\"settings.taxes.tax_rates\",\"settings.taxes.tax_rates.create\",\"settings.taxes.tax_rates.edit\",\"settings.data_transfer\",\"settings.data_transfer.imports\",\"settings.data_transfer.imports.create\",\"settings.data_transfer.imports.edit\",\"settings.data_transfer.imports.delete\",\"settings.data_transfer.imports.import\"]', '2025-12-03 11:55:01', '2025-12-03 11:55:01');
+(2, 'Merchant', 'Merchant', 'custom', '[\"sweepstakes\",\"sweepstakes.manage\",\"sweepstakes.create\",\"sales\",\"sales.orders\",\"sales.orders.create\",\"sales.orders.view\",\"sales.orders.cancel\",\"sales.invoices\",\"sales.invoices.view\",\"sales.invoices.create\",\"sales.shipments\",\"sales.shipments.view\",\"sales.shipments.create\",\"sales.refunds\",\"sales.refunds.view\",\"sales.refunds.create\",\"sales.transactions\",\"sales.transactions.view\",\"catalog\",\"catalog.products\",\"catalog.products.create\",\"catalog.products.copy\",\"catalog.products.edit\",\"catalog.products.delete\",\"catalog.categories\",\"catalog.categories.create\",\"catalog.categories.edit\",\"catalog.categories.delete\",\"catalog.attributes\",\"catalog.attributes.create\",\"catalog.attributes.edit\",\"catalog.attributes.delete\",\"catalog.families\",\"catalog.families.create\",\"catalog.families.edit\",\"catalog.families.delete\",\"customers\",\"customers.customers\",\"customers.customers.create\",\"customers.customers.edit\",\"customers.customers.delete\",\"customers.addresses\",\"customers.addresses.create\",\"customers.addresses.edit\",\"customers.addresses.delete\",\"customers.note\",\"customers.groups\",\"customers.groups.create\",\"customers.groups.edit\",\"customers.groups.delete\",\"customers.reviews\",\"customers.reviews.edit\",\"customers.reviews.delete\",\"customers.gdpr_requests\",\"customers.gdpr_requests.edit\",\"customers.gdpr_requests.delete\",\"marketing\",\"marketing.promotions\",\"marketing.promotions.cart_rules\",\"marketing.promotions.cart_rules.create\",\"marketing.promotions.cart_rules.copy\",\"marketing.promotions.cart_rules.edit\",\"marketing.promotions.cart_rules.delete\",\"marketing.promotions.catalog_rules\",\"marketing.promotions.catalog_rules.create\",\"marketing.promotions.catalog_rules.edit\",\"marketing.promotions.catalog_rules.delete\",\"marketing.communications\",\"marketing.communications.email_templates\",\"marketing.communications.email_templates.create\",\"marketing.communications.email_templates.edit\",\"marketing.communications.email_templates.delete\",\"marketing.communications.events\",\"marketing.communications.events.create\",\"marketing.communications.events.edit\",\"marketing.communications.events.delete\",\"marketing.communications.campaigns\",\"marketing.communications.campaigns.create\",\"marketing.communications.campaigns.edit\",\"marketing.communications.campaigns.delete\",\"marketing.communications.subscribers\",\"marketing.communications.subscribers.edit\",\"marketing.communications.subscribers.delete\",\"marketing.search_seo\",\"marketing.search_seo.url_rewrites\",\"marketing.search_seo.url_rewrites.create\",\"marketing.search_seo.url_rewrites.edit\",\"marketing.search_seo.url_rewrites.delete\",\"marketing.search_seo.search_terms\",\"marketing.search_seo.search_terms.create\",\"marketing.search_seo.search_terms.edit\",\"marketing.search_seo.search_terms.delete\",\"marketing.search_seo.search_synonyms\",\"marketing.search_seo.search_synonyms.create\",\"marketing.search_seo.search_synonyms.edit\",\"marketing.search_seo.search_synonyms.delete\",\"marketing.search_seo.sitemaps\",\"marketing.search_seo.sitemaps.create\",\"marketing.search_seo.sitemaps.edit\",\"marketing.search_seo.sitemaps.delete\",\"reporting\",\"reporting.sales\",\"reporting.customers\",\"reporting.products\",\"cms\",\"cms.create\",\"cms.edit\",\"cms.delete\",\"settings\",\"settings.channels\",\"settings.channels.create\",\"settings.channels.edit\",\"settings.channels.delete\",\"settings.themes\",\"settings.themes.create\",\"settings.themes.edit\",\"settings.themes.delete\",\"settings.taxes\",\"settings.taxes.tax_categories\",\"settings.taxes.tax_categories.create\",\"settings.taxes.tax_categories.edit\",\"settings.taxes.tax_categories.delete\",\"settings.taxes.tax_rates\",\"settings.taxes.tax_rates.create\",\"settings.taxes.tax_rates.edit\",\"settings.data_transfer\",\"settings.data_transfer.imports\",\"settings.data_transfer.imports.create\",\"settings.data_transfer.imports.edit\",\"settings.data_transfer.imports.delete\",\"settings.data_transfer.imports.import\"]', '2025-12-03 11:55:01', '2025-12-04 10:23:58');
 
 -- --------------------------------------------------------
 
@@ -4219,6 +4255,25 @@ CREATE TABLE `sweepstakes` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sweepstake_entries`
+--
+
+CREATE TABLE `sweepstake_entries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `sweepstake_id` int(11) NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `merchant_id` int(11) DEFAULT NULL,
+  `entries` int(11) NOT NULL DEFAULT 0,
+  `source` enum('stripe','clover','shopify','admin') NOT NULL DEFAULT 'admin',
+  `payment_reference` varchar(255) DEFAULT NULL,
+  `confirmed` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tax_categories`
 --
 
@@ -4335,6 +4390,57 @@ INSERT INTO `theme_customization_translations` (`id`, `theme_customization_id`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE `transactions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `payable_type` varchar(255) NOT NULL,
+  `payable_id` bigint(20) UNSIGNED NOT NULL,
+  `wallet_id` bigint(20) UNSIGNED NOT NULL,
+  `type` enum('deposit','withdraw') NOT NULL,
+  `amount` decimal(64,0) NOT NULL,
+  `confirmed` tinyint(1) NOT NULL,
+  `meta` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`meta`)),
+  `uuid` char(36) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`id`, `payable_type`, `payable_id`, `wallet_id`, `type`, `amount`, `confirmed`, `meta`, `uuid`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Webkul\\Customer\\Models\\Customer', 1, 1, 'deposit', 50, 1, NULL, '019aedd0-6b2a-7071-943a-ead3d2f3dadf', '2025-12-05 09:20:50', '2025-12-05 09:20:50', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transfers`
+--
+
+CREATE TABLE `transfers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `from_id` bigint(20) UNSIGNED NOT NULL,
+  `to_id` bigint(20) UNSIGNED NOT NULL,
+  `status` enum('exchange','transfer','paid','refund','gift') NOT NULL DEFAULT 'transfer',
+  `status_last` enum('exchange','transfer','paid','refund','gift') DEFAULT NULL,
+  `deposit_id` bigint(20) UNSIGNED NOT NULL,
+  `withdraw_id` bigint(20) UNSIGNED NOT NULL,
+  `discount` decimal(64,0) NOT NULL DEFAULT 0,
+  `fee` decimal(64,0) NOT NULL DEFAULT 0,
+  `extra` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`extra`)),
+  `uuid` char(36) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `url_rewrites`
 --
 
@@ -4392,6 +4498,35 @@ CREATE TABLE `visits` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wallets`
+--
+
+CREATE TABLE `wallets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `holder_type` varchar(255) NOT NULL,
+  `holder_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `uuid` char(36) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `meta` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`meta`)),
+  `balance` decimal(64,0) NOT NULL DEFAULT 0,
+  `decimal_places` smallint(5) UNSIGNED NOT NULL DEFAULT 2,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `wallets`
+--
+
+INSERT INTO `wallets` (`id`, `holder_type`, `holder_id`, `name`, `slug`, `uuid`, `description`, `meta`, `balance`, `decimal_places`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Webkul\\Customer\\Models\\Customer', 1, 'Default Wallet', 'default', '019aedd0-6552-737b-b632-656d981b6b54', NULL, '[]', 50, 2, '2025-12-05 09:20:49', '2025-12-05 09:20:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -4872,6 +5007,12 @@ ALTER TABLE `customer_social_accounts`
   ADD KEY `customer_social_accounts_customer_id_foreign` (`customer_id`);
 
 --
+-- Indexes for table `customer_wallets`
+--
+ALTER TABLE `customer_wallets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `datagrid_saved_filters`
 --
 ALTER TABLE `datagrid_saved_filters`
@@ -5339,6 +5480,12 @@ ALTER TABLE `sweepstakes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sweepstake_entries`
+--
+ALTER TABLE `sweepstake_entries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tax_categories`
 --
 ALTER TABLE `tax_categories`
@@ -5375,6 +5522,31 @@ ALTER TABLE `theme_customization_translations`
   ADD KEY `theme_customization_id_foreign` (`theme_customization_id`);
 
 --
+-- Indexes for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `transactions_uuid_unique` (`uuid`),
+  ADD KEY `transactions_payable_type_payable_id_index` (`payable_type`,`payable_id`),
+  ADD KEY `payable_type_payable_id_ind` (`payable_type`,`payable_id`),
+  ADD KEY `payable_type_ind` (`payable_type`,`payable_id`,`type`),
+  ADD KEY `payable_confirmed_ind` (`payable_type`,`payable_id`,`confirmed`),
+  ADD KEY `payable_type_confirmed_ind` (`payable_type`,`payable_id`,`type`,`confirmed`),
+  ADD KEY `transactions_type_index` (`type`),
+  ADD KEY `transactions_wallet_id_foreign` (`wallet_id`);
+
+--
+-- Indexes for table `transfers`
+--
+ALTER TABLE `transfers`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `transfers_uuid_unique` (`uuid`),
+  ADD KEY `transfers_deposit_id_foreign` (`deposit_id`),
+  ADD KEY `transfers_withdraw_id_foreign` (`withdraw_id`),
+  ADD KEY `transfers_from_id_index` (`from_id`),
+  ADD KEY `transfers_to_id_index` (`to_id`);
+
+--
 -- Indexes for table `url_rewrites`
 --
 ALTER TABLE `url_rewrites`
@@ -5396,6 +5568,16 @@ ALTER TABLE `visits`
   ADD KEY `visits_visitable_type_visitable_id_index` (`visitable_type`,`visitable_id`),
   ADD KEY `visits_visitor_type_visitor_id_index` (`visitor_type`,`visitor_id`),
   ADD KEY `visits_cid_ip_m_vid_vt_ca_idx` (`channel_id`,`ip`,`method`,`visitor_id`,`visitor_type`,`created_at`);
+
+--
+-- Indexes for table `wallets`
+--
+ALTER TABLE `wallets`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `wallets_holder_type_holder_id_slug_unique` (`holder_type`,`holder_id`,`slug`),
+  ADD UNIQUE KEY `wallets_uuid_unique` (`uuid`),
+  ADD KEY `wallets_holder_type_holder_id_index` (`holder_type`,`holder_id`),
+  ADD KEY `wallets_slug_index` (`slug`);
 
 --
 -- Indexes for table `wishlist`
@@ -5621,13 +5803,13 @@ ALTER TABLE `channel_translations`
 -- AUTO_INCREMENT for table `cms_pages`
 --
 ALTER TABLE `cms_pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `cms_page_translations`
 --
 ALTER TABLE `cms_page_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `compare_items`
@@ -5639,7 +5821,7 @@ ALTER TABLE `compare_items`
 -- AUTO_INCREMENT for table `core_config`
 --
 ALTER TABLE `core_config`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `countries`
@@ -5700,6 +5882,12 @@ ALTER TABLE `customer_notes`
 --
 ALTER TABLE `customer_social_accounts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `customer_wallets`
+--
+ALTER TABLE `customer_wallets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `datagrid_saved_filters`
@@ -5789,7 +5977,7 @@ ALTER TABLE `marketing_templates`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -6032,6 +6220,12 @@ ALTER TABLE `sweepstakes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `sweepstake_entries`
+--
+ALTER TABLE `sweepstake_entries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tax_categories`
 --
 ALTER TABLE `tax_categories`
@@ -6053,13 +6247,25 @@ ALTER TABLE `tax_rates`
 -- AUTO_INCREMENT for table `theme_customizations`
 --
 ALTER TABLE `theme_customizations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `theme_customization_translations`
 --
 ALTER TABLE `theme_customization_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `transfers`
+--
+ALTER TABLE `transfers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `url_rewrites`
@@ -6078,6 +6284,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `visits`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `wallets`
+--
+ALTER TABLE `wallets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
@@ -6729,6 +6941,19 @@ ALTER TABLE `theme_customizations`
 --
 ALTER TABLE `theme_customization_translations`
   ADD CONSTRAINT `theme_customization_id_foreign` FOREIGN KEY (`theme_customization_id`) REFERENCES `theme_customizations` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `transactions_wallet_id_foreign` FOREIGN KEY (`wallet_id`) REFERENCES `wallets` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `transfers`
+--
+ALTER TABLE `transfers`
+  ADD CONSTRAINT `transfers_deposit_id_foreign` FOREIGN KEY (`deposit_id`) REFERENCES `transactions` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transfers_withdraw_id_foreign` FOREIGN KEY (`withdraw_id`) REFERENCES `transactions` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `visits`

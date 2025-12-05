@@ -9,6 +9,8 @@ use Webkul\Sweepstakes\Listeners\Invoice;
 use Webkul\Sweepstakes\Listeners\Order;
 use Webkul\Sweepstakes\Listeners\Refund;
 use Webkul\Sweepstakes\Listeners\Shipment;
+use Webkul\Sales\Events\OrderPlaced;  
+use Webkul\Sweepstakes\Listeners\AddEntriesOnOrder;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -77,6 +79,10 @@ class EventServiceProvider extends ServiceProvider
 
         'sales.refund.save.after' => [
             [Refund::class, 'afterCreated'],
+        ],
+		
+		OrderPlaced::class => [
+            AddEntriesOnOrder::class,
         ],
     ];
 }
