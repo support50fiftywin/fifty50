@@ -214,6 +214,28 @@
                                 @includeWhen($group->code == 'price', 'admin::catalog.products.edit.price.group')
 
                                 @includeWhen($group->code === 'inventories', 'admin::catalog.products.edit.inventories')
+								
+								<div class="box-shadow relative rounded bg-white p-4 dark:bg-gray-900">
+									<p class="mb-4 text-base font-semibold text-gray-800 dark:text-white">
+										Entries
+									</p>
+
+									<x-admin::form.control-group>
+										<x-admin::form.control-group.label>
+											Sweepstakes Entries
+										</x-admin::form.control-group.label>
+
+										<x-admin::form.control-group.control
+											type="number"
+											name="entries"
+											value="{{ old('entries', $product->entries) }}"
+											min="0"
+										/>
+										<x-admin::form.control-group.error control-name="entries" />
+									</x-admin::form.control-group>
+								</div>
+
+								
                             </div>
 
                             {!! view_render_event("bagisto.admin.catalog.product.edit.form.{$group->code}.after", ['product' => $product]) !!}

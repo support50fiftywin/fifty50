@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2025 at 11:08 AM
+-- Generation Time: Dec 05, 2025 at 02:35 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -3656,6 +3656,20 @@ CREATE TABLE `product_downloadable_sample_translations` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `product_entries`
+--
+
+CREATE TABLE `product_entries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `entries` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product_flat`
 --
 
@@ -5308,6 +5322,12 @@ ALTER TABLE `product_downloadable_sample_translations`
   ADD KEY `sample_translations_sample_id_foreign` (`product_downloadable_sample_id`);
 
 --
+-- Indexes for table `product_entries`
+--
+ALTER TABLE `product_entries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product_flat`
 --
 ALTER TABLE `product_flat`
@@ -6098,6 +6118,12 @@ ALTER TABLE `product_downloadable_samples`
 --
 ALTER TABLE `product_downloadable_sample_translations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product_entries`
+--
+ALTER TABLE `product_entries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product_flat`

@@ -151,8 +151,12 @@ class ProductController extends Controller
     {
         Event::dispatch('catalog.product.update.before', $id);
 
-        $product = $this->productRepository->update($request->all(), $id);
+        //$product = $this->productRepository->update($request->all(), $id);
+		$data = $request->all();
+		$data['entries'] = $request->entries ?? 0;
 
+		$product = $this->productRepository->update($data, $id);
+		
         Event::dispatch('catalog.product.update.after', $product);
 
         session()->flash('success', trans('admin::app.catalog.products.update-success'));

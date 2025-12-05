@@ -90,11 +90,11 @@
 							<a href="{{ route('shop.customers.account.index') }}" class="text-sm font-medium hover:text-brand-accent block uppercase">
 								Account
 							</a>
-						@else
-							<a href="{{ route('shop.customers.session.index') }}" class="text-sm font-medium hover:text-brand-accent block uppercase">
-								Login
+							@else
+							<a href="{{ route('shop.customer.session.index') }}" class="text-sm font-medium hover:text-brand-accent block uppercase">
+							Login
 							</a>
-						@endauth
+							@endauth
 
                             <button class="relative p-2 hover:text-brand-accent transition-colors">
                                 <i class="text-lg">
