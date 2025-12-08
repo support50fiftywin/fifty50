@@ -19,6 +19,68 @@
     />
 @endPush
 
+@push('scripts')
+    <script>
+        localStorage.setItem('categories', JSON.stringify(@json($categories)));
+    </script>
+@endpush
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+    const emitter =
+        window.app?.config?.globalProperties?.$emitter || null;
+
+    window.addToCart = function (productId, type, redirectUrl) {
+
+        // ❌ Non-simple must go to product page
+        if (type !== 'simple') {
+            window.location.href = redirectUrl;
+            return;
+        }
+
+        axios.post('{{ route('shop.api.checkout.cart.store') }}', {
+            product_id: productId,
+            quantity: 1,
+        })
+        .then(response => {
+
+            // ✅ Update mini cart & cart badge
+            if (emitter && response.data?.data) {
+                emitter.emit('update-mini-cart', response.data.data);
+            }
+
+            // ✅ Success toast
+            if (emitter && response.data?.message) {
+                emitter.emit('add-flash', {
+                    type: 'success',
+                    message: response.data.message
+                });
+            }
+
+        })
+        .catch(error => {
+
+            const res = error.response?.data;
+
+            if (emitter) {
+                emitter.emit('add-flash', {
+                    type: 'error',
+                    message: res?.message || 'Unable to add product.'
+                });
+            }
+
+            if (res?.redirect_uri) {
+                window.location.href = res.redirect_uri;
+            }
+        });
+    };
+
+});
+</script>
+@endpush
+
 <x-shop::layouts>
     <x-slot:title>
         {{ $channel->home_seo['meta_title'] ?? '50FIFTY.WIN - Shop Merch, Win Prizes' }}
@@ -50,12 +112,12 @@
       </p>
          
 		 <div class="flex flex-col md:flex-row gap-4 w-full justify-center">
-                <a href="#featured-products" class="bg-brand-accent hover:bg-red-700 text-white px-8 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all transform hover:scale-105 shadow-lg shadow-red-900/50 rounded-full" style="background-color: #e11d48;">
+                <a href="{{ route('shop.search.index') }}" class="bg-brand-accent hover:bg-red-700 text-white px-8 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all transform hover:scale-105 shadow-lg shadow-red-900/50 rounded-full" style="background-color: #e11d48;">
                     Shop & Enter Now
                 </a>
 				
 				<a
-          href="#featured-products" class="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all rounded-full">
+          href="{{ route('shop.home.index') }}" class="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all rounded-full">
           View Prizesss
         </a>
             </div>
@@ -165,88 +227,90 @@
     {{-- 2. PRODUCTS SECTION (Dynamic) --}}
     <section id="featured-products" class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-2xl xl:text-4xl font-bold mb-2 uppercase">Featured Collection</h2>
-                    <p class="text-gray-500">Premium gear that gets you closer to the prize.</p>
-                </div>
-            </div>
+
+            <h2 class="text-3xl font-bold uppercase mb-10">
+                Featured Collection
+            </h2>
+
+            @php
+                $productRepository = app(\Webkul\Product\Repositories\ProductRepository::class);
+                $products = $productRepository->getAll([
+                    'limit' => 8,
+                    'status' => 1,
+                ]);
+            @endphp
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                @php
-                    // Fetch latest 8 products using Bagisto's Repository
-                    $productRepository = app('Webkul\Product\Repositories\ProductRepository');
-                    $products = $productRepository->getAll(['limit' => 8, 'new' => 1, 'status' => 1]);
-                @endphp
 
                 @foreach ($products as $product)
                     @php
-                        // Get Product Image
                         $images = product_image()->getGalleryImages($product);
-                        $mainImage = $images[0]['medium_image_url'] ?? bagisto_asset('images/default-product-image.jpg');
-                        
-                        // Calculate Entries (Price * 10)
+                        $image  = $images[0]['medium_image_url']
+                                    ?? bagisto_asset('images/default-product-image.jpg');
+
                         $price = $product->getTypeInstance()->getMinimalPrice();
-                        $entries = (int)$price * 10;
+						$entries = (int) ($product->entries ?? 0);
                     @endphp
 
-                    <div class="group">
-                        <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
-                            <img 
-                                src="{{ $mainImage }}" 
-                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" 
-                                alt="{{ $product->name }}"
-                            >
-                            
-                            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded" style="background-color: #e11d48;">
-                                {{ $entries }} ENTRIES
-                            </div>
+                    <div class="border rounded-xl overflow-hidden group bg-white">
 
-                            <form action="" method="POST">
-                                @csrf
-                                <input type="hidden" name="product_id" value="{{ $product->product_id }}">
-                                <input type="hidden" name="quantity" value="1">
-                                
-                                <button 
-                                    type="submit" 
-                                    class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full cursor-pointer"
-                                    @if ($product->type == 'configurable') disabled @endif 
+                        {{-- IMAGE --}}
+                        <div class="relative aspect-[4/5] bg-gray-100">
+                            <img
+                                src="{{ $image }}"
+                                alt="{{ $product->name }}"
+                                class="w-full h-full object-cover group-hover:scale-105 transition"
+                            />
+                           @if ($entries > 0)
+							<div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+								{{ $entries }} ENTRIES
+							</div>
+							@endif
+                            {{-- CTA --}}
+                            @if ($product->type === 'simple')
+                                <button
+                                    type="button"
+                                    onclick="addToCart(
+                                        {{ $product->id }},
+                                        '{{ $product->type }}',
+                                        '{{ route('shop.product_or_category.index', $product->url_key) }}'
+                                    )"
+                                    class="absolute bottom-4 left-4 right-4 bg-white py-3 rounded-full font-bold opacity-0 group-hover:opacity-100 transition"
                                 >
-                                    @if ($product->type == 'configurable')
-                                        Select Options
-                                    @else
-                                        Add to Cart
-                                    @endif
+                                    Add to Cart
                                 </button>
-                            </form>
+                            @else
+                                <a
+                                    href="{{ route('shop.product_or_category.index', $product->url_key) }}"
+                                    class="absolute bottom-4 left-4 right-4 bg-white py-3 rounded-full font-bold text-center opacity-0 group-hover:opacity-100 transition"
+                                >
+                                    Select Options
+                                </a>
+                            @endif
                         </div>
 
-                        <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">
-                            <a href="">
+                        {{-- DETAILS --}}
+                        <div class="p-4">
+                            <a
+                                href="{{ route('shop.product_or_category.index', $product->url_key) }}"
+                                class="font-bold block hover:text-rose-600"
+                            >
                                 {{ $product->name }}
                             </a>
-                        </h3>
 
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-900 font-medium">
+                            <span class="font-semibold">
                                 {{ core()->currency($price) }}
                             </span>
-                            
-                            <div class="flex text-yellow-400 text-xs">
-                                <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg>
-                                <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg>
-                                <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg>
-                                <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg>
-                                <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path></svg>
-                            </div>
                         </div>
+						
+
                     </div>
                 @endforeach
 
             </div>
         </div>
     </section>
+
 
     {{-- 3. CALL TO ACTION SECTION --}}
     <section id="cta-section" class="relative h-[500px] flex items-center overflow-hidden mt-12">
@@ -258,8 +322,8 @@
           <h2 class="text-5xl md:text-6xl font-bold mb-6 uppercase">Ready to Win?</h2>
           <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">Sign up now and get <span class="font-bold text-brand-accent" style="color: #e11d48;">100 FREE ENTRIES</span> instantly.</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" class="bg-brand-accent hover:bg-red-700 text-white px-10 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all transform hover:scale-105 rounded-full" style="background-color: #e11d48;">
-              Create Free Account
+            <a href="{{ route('shop.customer.session.create') }}?type=register" class="bg-brand-accent hover:bg-red-700 text-white px-10 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all transform hover:scale-105 rounded-full" style="background-color: #e11d48;">
+			 Create Free Account
             </a>
           </div>
         </div>
@@ -267,8 +331,7 @@
 
 </x-shop::layouts>
 
-@push('scripts')
-    <script>
-        localStorage.setItem('categories', JSON.stringify(@json($categories ?? [])));
-    </script>
-@endpush
+
+
+
+

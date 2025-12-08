@@ -1,12 +1,12 @@
 <?php
 
-namespace Webkul\Shop\Mail\Order;
+namespace Webkul\Sweepstakes\Mail\Order;
 
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Webkul\Sales\Contracts\OrderComment;
-use Webkul\Shop\Mail\Mailable;
+use Webkul\Sweepstakes\Mail\Mailable;
 
 class CommentedNotification extends Mailable
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Webkul\Shop\Mail\Order;
+namespace Webkul\Sweepstakes\Mail\Order;
 
 use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Webkul\Shop\Mail\Mailable;
+use Webkul\Sweepstakes\Mail\Mailable;
 
 class CanceledNotification extends Mailable
 {

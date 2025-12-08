@@ -154,7 +154,7 @@ class ProductController extends Controller
         //$product = $this->productRepository->update($request->all(), $id);
 		$data = $request->all();
 		$data['entries'] = $request->entries ?? 0;
-
+       
 		$product = $this->productRepository->update($data, $id);
 		
         Event::dispatch('catalog.product.update.after', $product);

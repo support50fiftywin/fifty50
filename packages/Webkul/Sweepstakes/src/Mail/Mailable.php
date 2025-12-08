@@ -1,6 +1,6 @@
 <?php
 
-namespace Webkul\Shop\Mail;
+namespace Webkul\Sweepstakes\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
