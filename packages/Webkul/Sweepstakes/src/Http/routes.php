@@ -4,16 +4,27 @@ use Illuminate\Support\Facades\Route;
 use Webkul\Admin\Http\Controllers\Controller;
 use Webkul\Sweepstakes\Http\Controllers\SweepstakesController;
 use Webkul\Sweepstakes\Http\Controllers\Admin\EntryController;
+use Webkul\Sweepstakes\Http\Controllers\Shopp\EntryControllerr;
 use Webkul\Customer\Models\Customer;
 // Route::group(['middleware' => ['web'], 'prefix' => 'sweepstakes'], function () {
     // Route::get('/', [SweepstakesController::class, 'index'])->name('sweepstakes.index');
 // });
 Route::get('/test-sweep', function() {
-    return "Sweepstakes package loaded!";
+    $customer = auth()->guard('customer')->user();
+    $customer->getWallet('default');
+    dd($customer);
 });
+Route::group([
+    'middleware' => ['web', 'customer'],
+], function () {
+
+    Route::get('/customer/entries', [EntryControllerr::class, 'index'])
+        ->name('shop.customer.entries.index');
+});
+
 Route::get('/wallet-test', function () {
 
-    $customer = Customer::first();
+    $customer = Customer::find(4);
 
     // Deposit
     $customer->wallet->deposit(50);
@@ -23,7 +34,14 @@ Route::get('/wallet-test', function () {
         'raw' => $customer->wallet,
     ];
 });
-
+Route::get('/wallet-entries', function () {
+    $customer = auth()->guard('customer')->user();
+	$customer->getWallet('default');
+	dd($customer);
+    return view('shop::customers.entries', [
+        'wallet' => $customer->getWallet('default'),
+    ]);
+})->middleware('customer')->name('shop.customer.entries');
 Route::get('/sweepstakes', function () {
         return view('sweepstakes::index');
     })->name('admin.sweepstakes.index');

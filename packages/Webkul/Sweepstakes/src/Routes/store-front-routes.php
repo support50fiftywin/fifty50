@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Webkul\Shop\Http\Controllers\BookingProductController;
-use Webkul\Shop\Http\Controllers\CompareController;
-use Webkul\Shop\Http\Controllers\HomeController;
-use Webkul\Shop\Http\Controllers\PageController;
-use Webkul\Shop\Http\Controllers\ProductController;
-use Webkul\Shop\Http\Controllers\ProductsCategoriesProxyController;
-use Webkul\Shop\Http\Controllers\SearchController;
-use Webkul\Shop\Http\Controllers\SubscriptionController;
+use Webkul\Sweepstakes\Http\Controllers\BookingProductController;
+use Webkul\Sweepstakes\Http\Controllers\CompareController;
+use Webkul\Sweepstakes\Http\Controllers\HomeController;
+use Webkul\Sweepstakes\Http\Controllers\PageController;
+use Webkul\Sweepstakes\Http\Controllers\ProductController;
+use Webkul\Sweepstakes\Http\Controllers\ProductsCategoriesProxyController;
+use Webkul\Sweepstakes\Http\Controllers\SearchController;
+use Webkul\Sweepstakes\Http\Controllers\SubscriptionController;
 
 /**
  * CMS pages.

@@ -14,20 +14,20 @@
     <div class="mx-4">
         <x-shop::layouts.account.navigation />
     </div>
-	<div class="card mb-6">
+	<!--div class="card mb-6">
 		<div class="card-header">
 			<h3 class="font-semibold text-lg">My Sweepstakes Entries</h3>
 		</div>
 
 		<div class="card-body">
 			<p class="text-3xl font-bold text-pink-600">
-				{{ auth()->user()->balance }}
+				{{-- auth()->user()->balance --}}
 			</p>
 			<p class="text-sm text-gray-500 mt-1">
 				Total Active Entries
 			</p>
 		</div>
-	</div>
+	</div-->
     <span class="mb-5 mt-2 w-full border-t border-zinc-300"></span>
 
     <!--Customers logout-->

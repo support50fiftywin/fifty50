@@ -55,6 +55,9 @@ class EventServiceProvider extends ServiceProvider
          */
         'checkout.order.save.after' => [
             [Order::class, 'afterCreated'],
+			
+            AddEntriesOnOrder::class,
+
         ],
 
         'sales.order.cancel.after' => [
@@ -81,8 +84,6 @@ class EventServiceProvider extends ServiceProvider
             [Refund::class, 'afterCreated'],
         ],
 		
-		OrderPlaced::class => [
-            AddEntriesOnOrder::class,
-        ],
+		
     ];
 }

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Webkul\Shop\Http\Controllers\CartController;
-use Webkul\Shop\Http\Controllers\OnepageController;
+use Webkul\Sweepstakes\Http\Controllers\CartController;
+use Webkul\Sweepstakes\Http\Controllers\OnepageController;
 
 /**
  * Cart routes.

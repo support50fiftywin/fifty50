@@ -7,34 +7,58 @@ use Webkul\Customer\Models\Customer;
 
 class AddEntriesOnOrder
 {
-    public function handle($event)
+    /**
+     * Handle checkout.order.save.after event
+     */
+    public function handle(Order $order): void
     {
-        /** @var Order $order */
-        $order = $event->order;
-
-        if (! $order->customer) {
+		
+        // ✅ Only customer orders
+        if (! $order->customer_id) {
             return;
         }
 
-        $customer = $order->customer;
+        /** @var Customer $customer */
+        $customer = Customer::find($order->customer_id);
 
-        $totalEntries = 0;
-
+        if (! $customer) {
+            return;
+        }
+//dd('hello');
+        // ✅ Get (or auto-create) wallet
+        //$wallet = $customer->getWallet('default');
+//dd($wallet);
         foreach ($order->items as $item) {
 
             $product = $item->product;
 
-            if (! $product || ! $product->entries) {
+            if (! $product) {
                 continue;
             }
 
-            $entries = $product->entries * $item->qty_ordered;
+            // ✅ Entries set by admin on product
+            $entriesPerUnit = (int) ($product->entries ?? 0);
 
-            $totalEntries += $entries;
-        }
+            if ($entriesPerUnit <= 0) {
+                continue;
+            }
 
-        if ($totalEntries > 0) {
-            $customer->deposit($totalEntries); // Adds entries to wallet
+            $totalEntries = $entriesPerUnit * (int) $item->qty_ordered;
+
+            // ✅ Deposit entries
+            $wallet->deposit(
+                $totalEntries,
+                [
+                    'type'         => 'order_entries',
+                    'order_id'     => $order->id,
+                    'order_item'   => $item->id,
+                    'product_id'   => $product->id,
+                    'product_name' => $product->name,
+                    'qty'          => $item->qty_ordered,
+                    'entries_each' => $entriesPerUnit,
+                    'source'       => 'purchase',
+                ]
+            );
         }
     }
 }
