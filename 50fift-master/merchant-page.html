@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project</title>
+  <!-- Final compiled CSS -->
+  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="./dist/custom.css">
+  <script src="./src/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="bg-white text-brand-black antialiased">
+  <div id="top-bar"
+    class="bg-brand-accent text-white py-2 text-center text-xs md:text-sm font-bold tracking-wider uppercase flex align-middle justify-center">
+    <i class="mr-2 inline-block">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="currentColor"
+          d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z">
+        </path>
+      </svg>
+    </i>10 Entries for every $1 spent | Sign up now for 100 FREE ENTRIES
+  </div>
+  <header id="header" class="sticky top-0 z-50 bg-white/95  border-b border-gray-100">
+    <div class="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between gap-5">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div
+          class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
+          50</div>
+        <span class="text-2xl font-bold font-display tracking-tighter">50FIFTY<span
+            class="text-brand-accent">.WIN</span></span>
+      </a>
+
+
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 xl:flex-1">
+        <!-- Desktop Nav -->
+        <div id="NAV-OFFSET" class="header-nav xl:contents">
+          <nav
+            class="flex flex-col xl:flex-row xl:items-center gap-3 xl:gap-8 font-medium text-sm uppercase tracking-wide flex-1 justify-center">
+            <a href="#" class="hover:text-brand-accent transition-colors">Shop Merch</a>
+            <a href="#" class="hover:text-brand-accent transition-colors">Past Winners</a>
+            <a href="#" class="hover:text-brand-accent transition-colors">How it Works</a>
+          </nav>
+          <div class="flex flex-col xl:flex-row gap-2 mt-5 xl:mt-0">
+            <button
+              class="px-4 py-2 text-xs font-medium border border-black rounded-btn hover:bg-black hover:text-white transition-colors rounded-full uppercase">
+              For Podcasters
+            </button>
+            <button
+              class="px-4 py-2 text-xs  font-medium border border-black rounded-btn hover:bg-black hover:text-white transition-colors rounded-full uppercase">
+              For Merchants
+            </button>
+          </div>
+        </div>
+
+        <div class="h-6 w-px bg-gray-300 mx-1 hidden xl:block"></div>
+        <a href="#" class="text-sm font-medium hover:text-brand-accent block uppercase">Login</a>
+        <button class="relative p-2 hover:text-brand-accent transition-colors">
+          <i class="text-lg" data-fa-i2svg="">
+            <svg class="svg-inline--fa fa-cart-shopping w-5" aria-hidden="true" focusable="false" data-prefix="fas"
+              data-icon="cart-shopping" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+              data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+              </path>
+            </svg>
+          </i>
+          <span
+            class="absolute top-0 right-0 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <a class="xl:hidden p-2 header__hamburger js--toggle" href="#NAV-OFFSET">
+          <span></span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <section id="hero" class="relative w-full h-[600px] md:h-[700px] bg-black overflow-hidden flex items-center">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&amp;w=2070&amp;auto=format&amp;fit=crop"
+        class="w-full h-full object-cover opacity-20" alt="Supercar Prize">
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center text-white max-w-4xl">
+      <span
+        class="inline-flex items-center gap-3 py-2 px-5 border border-white/30 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold uppercase tracking-widest mb-6">
+        <i>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 17C9 17 16 18 19 21H20C20.5523 21 21 20.5523 21 20V13.937C21.8626 13.715 22.5 12.9319 22.5 12C22.5 11.0681 21.8626 10.285 21 10.063V4C21 3.44772 20.5523 3 20 3H19C16 6 9 7 9 7H5C3.89543 7 3 7.89543 3 9V15C3 16.1046 3.89543 17 5 17H6L7 22H9V17ZM11 8.6612C11.6833 8.5146 12.5275 8.31193 13.4393 8.04373C15.1175 7.55014 17.25 6.77262 19 5.57458V18.4254C17.25 17.2274 15.1175 16.4499 13.4393 15.9563C12.5275 15.6881 11.6833 15.4854 11 15.3388V8.6612ZM5 9H9V15H5V9Z"
+              fill="white" />
+          </svg>
+        </i>
+        Launch Special: Get Started Today!
+      </span>
+      <h1 class="text-3xl md:text-4xl lg:text-7xl font-bold mb-6 leading-tight">
+        TURN EVERY PURCHASE INTO A WIN
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light">
+        Connect with merchants, reward your subscribers, and give everyone a chance to win big.
+        The sweepstakes platform that works for everyone.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4 w-full justify-center items-center">
+        <button
+          class="bg-brand-accent hover:bg-red-700 text-white px-8 py-3 rounded-btn font-semibold text-md tracking-wider transition-all   rounded-full flex gap-2 items-center">
+          <i>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M1.5 5.25L4.8075 1.9425C4.94704 1.80212 5.11299 1.69075 5.29577 1.61481C5.47856 1.53886 5.67457 1.49984 5.8725 1.5H12.1275C12.3254 1.49984 12.5214 1.53886 12.7042 1.61481C12.887 1.69075 13.053 1.80212 13.1925 1.9425L16.5 5.25"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M3 9V15C3 15.3978 3.15804 15.7794 3.43934 16.0607C3.72064 16.342 4.10218 16.5 4.5 16.5H13.5C13.8978 16.5 14.2794 16.342 14.5607 16.0607C14.842 15.7794 15 15.3978 15 15V9"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M11.25 16.5V13.5C11.25 13.1022 11.092 12.7206 10.8107 12.4393C10.5294 12.158 10.1478 12 9.75 12H8.25C7.85218 12 7.47064 12.158 7.18934 12.4393C6.90804 12.7206 6.75 13.1022 6.75 13.5V16.5"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M1.5 5.25H16.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M16.5 5.25V7.5C16.5 7.89782 16.342 8.27936 16.0607 8.56066C15.7794 8.84196 15.3978 9 15 9C14.5618 8.97588 14.1433 8.81006 13.8075 8.5275C13.718 8.46283 13.6104 8.42802 13.5 8.42802C13.3896 8.42802 13.282 8.46283 13.1925 8.5275C12.8567 8.81006 12.4382 8.97588 12 9C11.5618 8.97588 11.1433 8.81006 10.8075 8.5275C10.718 8.46283 10.6104 8.42802 10.5 8.42802C10.3896 8.42802 10.282 8.46283 10.1925 8.5275C9.8567 8.81006 9.4382 8.97588 9 9C8.5618 8.97588 8.1433 8.81006 7.8075 8.5275C7.71801 8.46283 7.61041 8.42802 7.5 8.42802C7.38959 8.42802 7.28199 8.46283 7.1925 8.5275C6.8567 8.81006 6.4382 8.97588 6 9C5.5618 8.97588 5.1433 8.81006 4.8075 8.5275C4.71801 8.46283 4.61041 8.42802 4.5 8.42802C4.38959 8.42802 4.28199 8.46283 4.1925 8.5275C3.8567 8.81006 3.4382 8.97588 3 9C2.60218 9 2.22064 8.84196 1.93934 8.56066C1.65804 8.27936 1.5 7.89782 1.5 7.5V5.25"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </i>
+          For Merchant
+        </button>
+        <button
+          class="bg-white hover:bg-gray-100 text-black px-8 py-3 rounded-btn font-bold text-md tracking-wider transition-all rounded-full flex gap-2 items-center">
+          <i>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M9 1.5C8.40326 1.5 7.83097 1.73705 7.40901 2.15901C6.98705 2.58097 6.75 3.15326 6.75 3.75V9C6.75 9.59674 6.98705 10.169 7.40901 10.591C7.83097 11.0129 8.40326 11.25 9 11.25C9.59674 11.25 10.169 11.0129 10.591 10.591C11.0129 10.169 11.25 9.59674 11.25 9V3.75C11.25 3.15326 11.0129 2.58097 10.591 2.15901C10.169 1.73705 9.59674 1.5 9 1.5Z"
+                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M14.25 7.5V9C14.25 10.3924 13.6969 11.7277 12.7123 12.7123C11.7277 13.6969 10.3924 14.25 9 14.25C7.60761 14.25 6.27226 13.6969 5.28769 12.7123C4.30312 11.7277 3.75 10.3924 3.75 9V7.5"
+                stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M9 14.25V16.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </i>
+          For Podcasters
+        </button>
+      </div>
+      <!-- Trust Badges Small -->
+      <div class="mt-12 flex flex-col md:flex-row gap-6 text-sm items-center">
+        <div class="flex items-center gap-2">
+          <i>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M4.5 6.75H3.375C2.87772 6.75 2.40081 6.55246 2.04917 6.20083C1.69754 5.84919 1.5 5.37228 1.5 4.875C1.5 4.37772 1.69754 3.90081 2.04917 3.54917C2.40081 3.19754 2.87772 3 3.375 3H4.5"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M13.5 6.75H14.625C15.1223 6.75 15.5992 6.55246 15.9508 6.20083C16.3025 5.84919 16.5 5.37228 16.5 4.875C16.5 4.37772 16.3025 3.90081 15.9508 3.54917C15.5992 3.19754 15.1223 3 14.625 3H13.5"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M3 16.5H15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M7.5 10.995V12.75C7.5 13.1625 7.1475 13.485 6.7725 13.6575C5.8875 14.0625 5.25 15.18 5.25 16.5"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M10.5 10.995V12.75C10.5 13.1625 10.8525 13.485 11.2275 13.6575C12.1125 14.0625 12.75 15.18 12.75 16.5"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M13.5 1.5H4.5V6.75C4.5 7.94347 4.97411 9.08807 5.81802 9.93198C6.66193 10.7759 7.80653 11.25 9 11.25C10.1935 11.25 11.3381 10.7759 12.182 9.93198C13.0259 9.08807 13.5 7.94347 13.5 6.75V1.5Z"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </i>
+          <span><b>15,000+</b>Entries This Month</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path
+                  d="M1.5 5.25L4.8075 1.9425C4.94704 1.80212 5.11299 1.69075 5.29577 1.61481C5.47856 1.53886 5.67457 1.49984 5.8725 1.5H12.1275C12.3254 1.49984 12.5214 1.53886 12.7042 1.61481C12.887 1.69075 13.053 1.80212 13.1925 1.9425L16.5 5.25"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M3 9V15C3 15.3978 3.15804 15.7794 3.43934 16.0607C3.72064 16.342 4.10218 16.5 4.5 16.5H13.5C13.8978 16.5 14.2794 16.342 14.5607 16.0607C14.842 15.7794 15 15.3978 15 15V9"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M11.25 16.5V13.5C11.25 13.1022 11.092 12.7206 10.8107 12.4393C10.5294 12.158 10.1478 12 9.75 12H8.25C7.85218 12 7.47064 12.158 7.18934 12.4393C6.90804 12.7206 6.75 13.1022 6.75 13.5V16.5"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M1.5 5.25H16.5" stroke="white" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M16.5 5.25V7.5C16.5 7.89782 16.342 8.27936 16.0607 8.56066C15.7794 8.84196 15.3978 9 15 9C14.5618 8.97588 14.1433 8.81006 13.8075 8.5275C13.718 8.46283 13.6104 8.42802 13.5 8.42802C13.3896 8.42802 13.282 8.46283 13.1925 8.5275C12.8567 8.81006 12.4382 8.97588 12 9C11.5618 8.97588 11.1433 8.81006 10.8075 8.5275C10.718 8.46283 10.6104 8.42802 10.5 8.42802C10.3896 8.42802 10.282 8.46283 10.1925 8.5275C9.8567 8.81006 9.4382 8.97588 9 9C8.5618 8.97588 8.1433 8.81006 7.8075 8.5275C7.71801 8.46283 7.61041 8.42802 7.5 8.42802C7.38959 8.42802 7.28199 8.46283 7.1925 8.5275C6.8567 8.81006 6.4382 8.97588 6 9C5.5618 8.97588 5.1433 8.81006 4.8075 8.5275C4.71801 8.46283 4.61041 8.42802 4.5 8.42802C4.38959 8.42802 4.28199 8.46283 4.1925 8.5275C3.8567 8.81006 3.4382 8.97588 3 9C2.60218 9 2.22064 8.84196 1.93934 8.56066C1.65804 8.27936 1.5 7.89782 1.5 7.5V5.25"
+                  stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+            </svg>
+          </i>
+          <span><b>500+</b> Active Merchants</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <i>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 15.75V14.25C12 13.4544 11.6839 12.6913 11.1213 12.1287C10.5587 11.5661 9.79565 11.25 9 11.25H4.5C3.70435 11.25 2.94129 11.5661 2.37868 12.1287C1.81607 12.6913 1.5 13.4544 1.5 14.25V15.75"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M6.75 8.25C8.40685 8.25 9.75 6.90685 9.75 5.25C9.75 3.59315 8.40685 2.25 6.75 2.25C5.09315 2.25 3.75 3.59315 3.75 5.25C3.75 6.90685 5.09315 8.25 6.75 8.25Z"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M16.5 15.75V14.25C16.4995 13.5853 16.2783 12.9396 15.871 12.4142C15.4638 11.8889 14.8936 11.5136 14.25 11.3475"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M12 2.34747C12.6453 2.5127 13.2173 2.888 13.6257 3.41421C14.0342 3.94041 14.2559 4.5876 14.2559 5.25372C14.2559 5.91985 14.0342 6.56703 13.6257 7.09324C13.2173 7.61945 12.6453 7.99475 12 8.15997"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </i>
+          <span><b>$250K+</b> in Prizes Won</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w-full bg-brand-accent py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col xl:flex-row items-center justify-between gap-4">
+
+        <div class="col-left">
+          <h2 class="text-white text-2xl font-bold uppercase tracking-wide">
+            Giveaway
+          </h2>
+          <p class="text-white text-sm mt-1 opacity-80">
+            Ends In
+          </p>
+        </div>
+
+        <!-- Timer -->
+        <div class="flex gap-4 text-center">
+          <!-- Days -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">27</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Days</span>
+          </div>
+
+          <!-- Hours -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">12</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Hrs</span>
+          </div>
+
+          <!-- Minutes -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">06</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Min</span>
+          </div>
+
+          <!-- Seconds -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">45</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Sec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="bg-white py-16 text-slate-900">
+    <div class="mx-auto px-4 xl:container">
+      <div class="mb-10 text-center">
+        <h2 class="text-3xl font-bold text-slate-900 md:text-4xl uppercase">How 50Fifty Works</h2>
+        <p class="mt-3 text-md text-slate-500 md:text-xl">
+          Three ways to participate in the 50Fifty ecosystem. Choose your role and start winning together.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- CARD 1 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.06)] border">
+          <!-- Top Color Box -->
+          <div class="bg-[#0A63FF] text-white p-8 h-[260px] flex flex-col">
+            <div class="text-4xl mb-4">
+              <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M31.25 43.75V33.3333C31.25 32.7808 31.0305 32.2509 30.6398 31.8602C30.2491 31.4695 29.7192 31.25 29.1667 31.25H20.8333C20.2808 31.25 19.7509 31.4695 19.3602 31.8602C18.9695 32.2509 18.75 32.7808 18.75 33.3333V43.75"
+                  stroke="#FDFDFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M37.0292 21.4791C36.5949 21.0634 36.0169 20.8313 35.4156 20.8313C34.8144 20.8313 34.2364 21.0634 33.8021 21.4791C32.8334 22.4031 31.546 22.9186 30.2073 22.9186C28.8686 22.9186 27.5812 22.4031 26.6125 21.4791C26.1783 21.064 25.6007 20.8323 25 20.8323C24.3993 20.8323 23.8217 21.064 23.3875 21.4791C22.4187 22.4037 21.1309 22.9196 19.7917 22.9196C18.4524 22.9196 17.1647 22.4037 16.1958 21.4791C15.7615 21.0634 15.1835 20.8313 14.5823 20.8313C13.9811 20.8313 13.4031 21.0634 12.9688 21.4791C12.033 22.3721 10.7985 22.8849 9.50547 22.9178C8.21246 22.9506 6.95347 22.5012 5.97356 21.657C4.99364 20.8128 4.36291 19.6341 4.20414 18.3505C4.04536 17.0668 4.3699 15.77 5.11459 14.7125L11.1333 5.99579C11.5152 5.43227 12.0294 4.97091 12.6308 4.65203C13.2322 4.33316 13.9026 4.1665 14.5833 4.16663H35.4167C36.0954 4.16637 36.7639 4.33192 37.3641 4.64889C37.9643 4.96587 38.478 5.42466 38.8604 5.98538L44.8917 14.7187C45.6365 15.7771 45.9607 17.0749 45.8009 18.3592C45.6411 19.6435 45.0089 20.8223 44.0274 21.666C43.046 22.5096 41.7856 22.9576 40.4918 22.9227C39.1981 22.8878 37.9637 22.3724 37.0292 21.477"
+                  stroke="#FDFDFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M8.33334 22.8125V39.5833C8.33334 40.6884 8.77232 41.7482 9.55372 42.5296C10.3351 43.311 11.3949 43.75 12.5 43.75H37.5C38.6051 43.75 39.6649 43.311 40.4463 42.5296C41.2277 41.7482 41.6667 40.6884 41.6667 39.5833V22.8125"
+                  stroke="#FDFDFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold mb-2">For Merchants</h3>
+            <p class="text-md">
+              Sell custom merchandise with entries included. Get 15% commission on every sale.
+            </p>
+          </div>
+
+          <!-- White Bottom Box -->
+          <div class="bg-white p-8 flex flex-col">
+            <ul class="space-y-4 text-md text-gray-800">
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> Custom logos
+                &
+                taglines
+              </li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> POS
+                integration
+                with Clover
+              </li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> QR codes &
+                downloadable
+                flyers</li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> Unique
+                merchant
+                page (e.g.,
+                50fifty.win/justinospizza)</li>
+            </ul>
+            <button class="mt-8 bg-[#0A63FF] text-white w-full py-3 rounded-full font-semibold">
+              Become a Merchant
+            </button>
+          </div>
+        </div>
+        <!-- CARD 2 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.06)] border">
+          <div class="bg-[#A92CF6] text-white p-8 h-[260px] flex flex-col">
+            <div class="text-4xl mb-4">
+              <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M33.8479 16.1687C36.1875 18.5123 37.5015 21.6885 37.5015 25C37.5015 28.3114 36.1875 31.4876 33.8479 33.8312"
+                  stroke="#FFF6F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M39.7396 10.2771C43.6414 14.1834 45.833 19.4788 45.833 25C45.833 30.5212 43.6414 35.8166 39.7396 39.7229"
+                  stroke="#FFF6F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M10.2604 39.7229C6.35858 35.8166 4.16693 30.5212 4.16693 25C4.16693 19.4788 6.35858 14.1834 10.2604 10.2771"
+                  stroke="#FFF6F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M16.1521 33.8312C13.8125 31.4876 12.4985 28.3114 12.4985 25C12.4985 21.6885 13.8125 18.5123 16.1521 16.1687"
+                  stroke="#FFF6F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M25 29.1667C27.3012 29.1667 29.1666 27.3012 29.1666 25C29.1666 22.6989 27.3012 20.8334 25 20.8334C22.6988 20.8334 20.8333 22.6989 20.8333 25C20.8333 27.3012 22.6988 29.1667 25 29.1667Z"
+                  stroke="#FFF6F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold mb-2">For Influencers & Podcasters</h3>
+            <p class="text-md">
+              Reward your audience with entries. Grow engagement and build loyalty.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 flex flex-col">
+            <ul class="space-y-4 text-md text-gray-800">
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> 5000 entries
+                for just $49
+              </li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> Give 100
+                entries per
+                subscriber</li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> Custom
+                branded page
+                (e.g.,
+                50fifty.win/theRizPodcast)</li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> QR codes for
+                easy sharing
+              </li>
+            </ul>
+
+            <button class="mt-8 bg-[#A92CF6] text-white w-full py-3 rounded-full font-semibold">
+              Start Rewarding Fans
+            </button>
+          </div>
+        </div>
+        <!-- CARD 3 -->
+        <div class="rounded-3xl overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.06)] border">
+          <div class="bg-[#FF35A1] text-white p-8 h-[260px] flex flex-col">
+            <div class="text-4xl mb-4">
+              <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M41.6667 16.6666H8.33333C7.18274 16.6666 6.25 17.5994 6.25 18.75V22.9166C6.25 24.0672 7.18274 25 8.33333 25H41.6667C42.8173 25 43.75 24.0672 43.75 22.9166V18.75C43.75 17.5994 42.8173 16.6666 41.6667 16.6666Z"
+                  stroke="#FFF5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M25 16.6666V43.75" stroke="#FFF5F5" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path
+                  d="M39.5834 25V39.5833C39.5834 40.6884 39.1444 41.7482 38.363 42.5296C37.5816 43.311 36.5218 43.75 35.4167 43.75H14.5834C13.4783 43.75 12.4185 43.311 11.6371 42.5296C10.8557 41.7482 10.4167 40.6884 10.4167 39.5833V25"
+                  stroke="#FFF5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path
+                  d="M15.625 16.6667C14.2437 16.6667 12.9189 16.118 11.9422 15.1412C10.9654 14.1645 10.4167 12.8397 10.4167 11.4584C10.4167 10.0771 10.9654 8.75229 11.9422 7.77554C12.9189 6.79879 14.2437 6.25006 15.625 6.25006C17.6348 6.21504 19.6042 7.19018 21.2766 9.04831C22.9489 10.9064 24.2464 13.5613 25 16.6667C25.7536 13.5613 27.0512 10.9064 28.7235 9.04831C30.3958 7.19018 32.3653 6.21504 34.375 6.25006C35.7564 6.25006 37.0811 6.79879 38.0579 7.77554C39.0346 8.75229 39.5834 10.0771 39.5834 11.4584C39.5834 12.8397 39.0346 14.1645 38.0579 15.1412C37.0811 16.118 35.7564 16.6667 34.375 16.6667"
+                  stroke="#FFF5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 class="text-2xl font-semibold mb-2">For Customers</h3>
+            <p class="text-md">
+              Shop, enter, and win! Every purchase gives you entries to monthly drawings.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 flex flex-col">
+            <ul class="space-y-4 text-md text-gray-800">
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> Automatic
+                entry with
+                every purchase
+              </li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> Text
+                confirmation for
+                all entries
+              </li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> Personal
+                login to track
+                entries</li>
+              <li class="flex gap-3 items-start"><span class="text-green-500 text-lg leading-none">●</span> 12 monthly
+                updates with
+                special
+                offers</li>
+            </ul>
+
+            <button class="mt-8 bg-[#FF35A1] text-white w-full py-3 rounded-full font-semibold">
+              Enter to Win
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Landing Page CTA -->
+  <section class="py-16 px-4">
+    <div class="container mx-auto px-3">
+      <div class="p-10 text-center text-white bg-gradient-to-r from-fuchsia-600 via-pink-500 to-orange-400 rounded-2xl">
+        <div class="py-10">
+          <h2 class="text-2xl font-bold md:text-5xl pb-4">Get Your Custom Landing Page</h2>
+          <p class="mt-3 text-lg text-fuchsia-50 md:text-xl max-w-[800px] mx-auto">
+            Every merchant and influencer gets a unique, branded page with custom logos,
+            taglines, and designs. Set up in minutes, start earning immediately.
+          </p>
+          <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-center">
+            <button
+              class="rounded-full bg-white px-10 py-4 text-lg font-semibold uppercase tracking-wide text-fuchsia-700 hover:bg-fuchsia-50">
+              Create Your Page Now
+            </button>
+            <button
+              class="rounded-full border border-white/60 px-10 py-4 text-lg font-semibold uppercase tracking-wide text-white hover:bg-white/10">
+              Contact us
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section class="bg-white py-16 text-slate-900">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col gap-10 xl:flex-row xl:items-center pb-20">
+        <!-- Image -->
+        <div class="xl:w-1/2">
+          <div class="overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="https://images.pexels.com/photos/2156816/pexels-photo-2156816.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              alt="Storefront" class="h-full w-full object-cover" />
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="xl:w-1/2">
+          <h2 class="text-2xl font-semibold md:text-4xl pb-3">Why Choose 50Fifty</h2>
+          <p class="mt-3 text-md text-slate-500 md:text-lg">
+            A revolutionary platform that connects merchants, influencers, and customers in a win-win-win ecosystem.
+          </p>
+          <div class="mt-8 grid gap-6 md:grid-cols-2">
+            <div class="flex gap-3">
+              <div class="mt-1 text-lg">🛍️</div>
+              <div>
+                <h3 class="text-lg font-semibold">Shop &amp; Win</h3>
+                <p class="text-md text-slate-500">
+                  Every purchase from participating merchants comes with entries.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="mt-1 text-lg">📲</div>
+              <div>
+                <h3 class="text-lg font-semibold">Stay Connected</h3>
+                <p class="text-md text-slate-500">
+                  Receive 12 text messages or emails per year with exclusive offers.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="mt-1 text-lg">📺</div>
+              <div>
+                <h3 class="text-lg font-semibold">Live Drawings</h3>
+                <p class="text-md text-slate-500">
+                  Watch live drawings on our website and social channels.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="mt-1 text-lg">🚀</div>
+              <div>
+                <h3 class="text-lg font-semibold">Grow Your Business</h3>
+                <p class="text-md text-slate-500">
+                  Increase foot traffic, boost order size, and build loyalty.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="mt-1 text-lg">⚡</div>
+              <div>
+                <h3 class="text-lg font-semibold">Easy Entry</h3>
+                <p class="text-md text-slate-500">
+                  Enter via POS, receipts, or QR codes in just seconds.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-3">
+              <div class="mt-1 text-lg">👥</div>
+              <div>
+                <h3 class="text-lg font-semibold">Engage Your Audience</h3>
+                <p class="text-md text-slate-500">
+                  Influencers can reward subscribers and viewers with instant entries.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Features Grid / Bottom CTA -->
+  <section class="bg-gradient-to-b from-fuchsia-700 via-purple-800 to-slate-950 py-20 text-white">
+    <div class="container mx-auto py-10 px-4">
+      <div class="grid gap-10 xl:grid-cols-[1.2fr,1fr]">
+        <!-- Left text -->
+        <div class="sm:grid-cols-2">
+          <h2 class="text-xl font-bold md:text-6xl">Ready to Get Started?</h2>
+          <p class="mt-4 text-lg text-fuchsia-100 md:text-lg">
+            Join the 50Fifty revolution today. Whether you’re a merchant looking to increase sales,
+            an influencer wanting to reward your audience, or a customer ready to win big – we’ve got you covered.
+          </p>
+
+          <ul class="mt-6 space-y-3 text-md text-fuchsia-50">
+            <li>✅ Instant setup with custom branding</li>
+            <li>✅ Seamless POS integration with Clover</li>
+            <li>✅ QR codes and downloadable marketing materials</li>
+            <li>✅ Live drawing broadcasts on your unique page</li>
+          </ul>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <button
+              class="w-full rounded-full bg-orange-400 px-8 py-4 text-md font-semibold uppercase tracking-wide text-slate-900 hover:bg-orange-300 sm:w-auto">
+              Sign Up Now
+            </button>
+            <button
+              class="w-full rounded-full border border-white/60 px-8 py-4 text-md font-semibold uppercase tracking-wide hover:bg-white/10 sm:w-auto">
+              Download QR Kit
+            </button>
+          </div>
+        </div>
+
+        <!-- Right cards -->
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-purple-900/70 p-7 text-md">
+            <h3 class="mb-1 text-2xl font-semibold">QR Codes</h3>
+            <p class="text-fuchsia-100 pt-3">
+              Get custom QR codes for every customer touchpoint.
+            </p>
+          </div>
+          <div class="rounded-2xl bg-purple-900/70 p-7 text-md">
+            <h3 class="mb-1 text-2xl font-semibold">Flyers</h3>
+            <p class="text-fuchsia-100 pt-3">
+              Download promotional materials for your business.
+            </p>
+          </div>
+          <div class="rounded-2xl bg-purple-900/70 p-7 text-md">
+            <h3 class="mb-1 text-2xl font-semibold">Text Updates</h3>
+            <p class="text-fuchsia-100 pt-3">
+              Automatic confirmations and monthly reminders.
+            </p>
+          </div>
+          <div class="rounded-2xl bg-purple-900/70 p-7 text-md">
+            <h3 class="mb-1 text-2xl font-semibold">Live Draws</h3>
+            <p class="text-fuchsia-100 pt-3">
+              Watch the most exciting live drawing events online.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="relative bg-black w-full bg-cover bg-center bg-no-repeat py-16"
+    style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop');">
+    <div class="bg-black/70 absolute inset-0"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 text-center text-white">
+
+      <!-- Heading -->
+      <h2 class="text-3xl md:text-4xl font-extrabold">Win $10,000 Cash Prize!</h2>
+      <p class="mt-2 text-sm md:text-base opacity-90">
+        Enter for your chance to win $10,000 cash! Multiple ways to enter and increase your chances.
+      </p>
+
+      <!-- Timer -->
+      <div class="flex justify-center gap-4 mt-8">
+
+        <!-- Days -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">27</span>
+          <p class="text-xs font-semibold uppercase mt-1">Days</p>
+        </div>
+
+        <!-- Hours -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">12</span>
+          <p class="text-xs font-semibold uppercase mt-1">Hours</p>
+        </div>
+
+        <!-- Minutes -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">06</span>
+          <p class="text-xs font-semibold uppercase mt-1">Minutes</p>
+        </div>
+
+        <!-- Seconds -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">45</span>
+          <p class="text-xs font-semibold uppercase mt-1">Seconds</p>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <button
+        class="mt-10 bg-red-600 hover:bg-red-700 text-white font-medium text-sm md:text-base px-8 py-3 rounded shadow-md transition">
+        Get Entries
+      </button>
+
+    </div>
+  </section>
+  <footer id="footer" class="bg-brand-dark text-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold text-lg">
+              50
+            </div>
+            <span class="text-2xl font-bold font-display">50FIFTY<span class="text-brand-accent">.WIN</span></span>
+          </div>
+          <p class="text-gray-400 text-sm">Shop custom merch, earn entries, and win incredible prizes. Your dream is one
+            purchase away.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shop All</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Past Winners</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Current Prizes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">For Partners</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Podcaster Stores</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Merchant Program</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Affiliate Info</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">© 2024 50fifty.win. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-facebook-f w-3" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                </path>
+              </svg></i>
+          </a>
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-twitter w-4" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                </path>
+              </svg>
+            </i>
+          </a>
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-instagram w-4" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                </path>
+              </svg>
+            </i>
+          </a>
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-youtube w-4 aria-hidden=" true" focusable="false" data-prefix="fab"
+                data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
+                </path>
+              </svg>
+            </i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+<script>
+  $(document).ready(function () {
+    /* COMMON TOGGLES */
+    $(document).on('click', '.js--toggle', function (e) {
+      e.preventDefault();
+      $($(this).attr('href')).toggleClass('is-visible');
+      $(this).toggleClass('is-active');
+      $('html').toggleClass('is--toggle');
+    });
+  });
+</script>
+
+</html>

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project</title>
+  <!-- Final compiled CSS -->
+  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="./dist/custom.css">
+  <script src="./src/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="bg-white text-brand-black antialiased">
+  <div id="top-bar"
+    class="bg-brand-accent text-white py-2 text-center text-xs md:text-sm font-bold tracking-wider uppercase flex align-middle justify-center">
+    <i class="mr-2 inline-block">
+      <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="currentColor"
+          d="M159.3 5.4c7.8-7.3 19.9-7.2 27.7 .1c27.6 25.9 53.5 53.8 77.7 84c11-14.4 23.5-30.1 37-42.9c7.9-7.4 20.1-7.4 28 .1c34.6 33 63.9 76.6 84.5 118c20.3 40.8 33.8 82.5 33.8 111.9C448 404.2 348.2 512 224 512C98.4 512 0 404.1 0 276.5c0-38.4 17.8-85.3 45.4-131.7C73.3 97.7 112.7 48.6 159.3 5.4zM225.7 416c25.3 0 47.7-7 68.8-21c42.1-29.4 53.4-88.2 28.1-134.4c-4.5-9-16-9.6-22.5-2l-25.2 29.3c-6.6 7.6-18.5 7.4-24.7-.5c-16.5-21-46-58.5-62.8-79.8c-6.3-8-18.3-8.1-24.7-.1c-33.8 42.5-50.8 69.3-50.8 99.4C112 375.4 162.6 416 225.7 416z">
+        </path>
+      </svg>
+    </i>10 Entries for every $1 spent | Sign up now for 100 FREE ENTRIES
+  </div>
+  <header id="header" class="sticky top-0 z-50 bg-white/95  border-b border-gray-100">
+    <div class="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between gap-5">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 group">
+        <div
+          class="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold text-lg group-hover:scale-110 transition-transform">
+          50</div>
+        <span class="text-2xl font-bold font-display tracking-tighter">50FIFTY<span
+            class="text-brand-accent">.WIN</span></span>
+      </a>
+
+
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 xl:flex-1">
+        <!-- Desktop Nav -->
+        <div id="NAV-OFFSET" class="header-nav xl:contents">
+          <nav
+            class="flex flex-col xl:flex-row xl:items-center gap-3 xl:gap-8 font-medium text-sm uppercase tracking-wide flex-1 justify-center">
+            <a href="#" class="hover:text-brand-accent transition-colors">Shop Merch</a>
+            <a href="#" class="hover:text-brand-accent transition-colors">Past Winners</a>
+            <a href="#" class="hover:text-brand-accent transition-colors">How it Works</a>
+          </nav>
+          <div class="flex flex-col xl:flex-row gap-2 mt-5 xl:mt-0">
+            <button
+              class="px-4 py-2 text-xs font-medium border border-black rounded-btn hover:bg-black hover:text-white transition-colors rounded-full uppercase">
+              For Podcasters
+            </button>
+            <button
+              class="px-4 py-2 text-xs  font-medium border border-black rounded-btn hover:bg-black hover:text-white transition-colors rounded-full uppercase">
+              For Merchants
+            </button>
+          </div>
+        </div>
+
+        <div class="h-6 w-px bg-gray-300 mx-1 hidden xl:block"></div>
+        <a href="#" class="text-sm font-medium hover:text-brand-accent block uppercase">Login</a>
+        <button class="relative p-2 hover:text-brand-accent transition-colors">
+          <i class="text-lg" data-fa-i2svg="">
+            <svg class="svg-inline--fa fa-cart-shopping w-5" aria-hidden="true" focusable="false" data-prefix="fas"
+              data-icon="cart-shopping" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+              data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z">
+              </path>
+            </svg>
+          </i>
+          <span
+            class="absolute top-0 right-0 bg-black text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <a class="xl:hidden p-2 header__hamburger js--toggle" href="#NAV-OFFSET">
+          <span></span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <section id="hero" class="relative w-full h-[600px] md:h-[700px] bg-black overflow-hidden flex items-center">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&amp;w=2070&amp;auto=format&amp;fit=crop"
+        class="w-full h-full object-cover opacity-20" alt="Supercar Prize">
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 flex flex-col items-center text-center text-white max-w-4xl">
+      <span
+        class="inline-block py-1 px-3 border border-white/30 rounded-full bg-white/10 backdrop-blur-md text-xs font-bold uppercase tracking-widest mb-6">
+        Current Giveaway Ends Soon
+      </span>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+        WIN THIS <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">DREAM RIDE</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light">
+        Every <span class="font-bold text-white">$1 spent</span> on custom merch gets you <span
+          class="font-bold text-brand-accent">10 ENTRIES</span> to win.
+        <br class="hidden md:block">Create an account today and get <span
+          class="font-bold underline decoration-brand-accent">100 FREE ENTRIES</span> instantly.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4 w-full justify-center">
+        <button
+          class="bg-brand-accent hover:bg-red-700 text-white px-8 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all transform hover:scale-105 shadow-lg shadow-red-900/50 rounded-full">
+          Shop &amp; Enter Now
+        </button>
+        <button
+          class="bg-white hover:bg-gray-100 text-black px-8 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all rounded-full">
+          View Prizes
+        </button>
+      </div>
+      <!-- Trust Badges Small -->
+      <div class="mt-12 flex gap-6 text-gray-400 text-sm font-medium items-center">
+        <div class="flex items-center gap-2">
+          <i>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="currentColor"
+                d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z">
+              </path>
+            </svg>
+          </i> Official Giveaway
+        </div>
+        <div class="flex items-center gap-2">
+          <i>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor"
+                d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z">
+              </path>
+            </svg>
+          </i>
+          Secure Checkout
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="w-full bg-brand-accent py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col xl:flex-row items-center justify-between gap-4">
+
+        <div class="col-left">
+          <h2 class="text-white text-2xl font-bold uppercase tracking-wide">
+            Giveaway
+          </h2>
+          <p class="text-white text-sm mt-1 opacity-80">
+            Ends In
+          </p>
+        </div>
+
+        <!-- Timer -->
+        <div class="flex gap-4 text-center">
+          <!-- Days -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">27</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Days</span>
+          </div>
+
+          <!-- Hours -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">12</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Hrs</span>
+          </div>
+
+          <!-- Minutes -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">06</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Min</span>
+          </div>
+
+          <!-- Seconds -->
+          <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
+            <span class="block text-2xl font-bold text-gray-800">45</span>
+            <span class="block text-xs font-medium text-gray-600 uppercase">Sec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits" class="py-16 bg-brand-gray border-b border-gray-200">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Benefit 1 -->
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm text-center group hover:-translate-y-1 transition-transform duration-300">
+          <div
+            class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-shirt w-8" aria-hidden="true" focusable="false" data-prefix="fas"
+                data-icon="shirt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M211.8 0c7.8 0 14.3 5.7 16.7 13.2C240.8 51.9 277.1 80 320 80s79.2-28.1 91.5-66.8C413.9 5.7 420.4 0 428.2 0h12.6c22.5 0 44.2 7.9 61.5 22.3L628.5 127.4c6.6 5.5 10.7 13.5 11.4 22.1s-2.1 17.1-7.8 23.6l-56 64c-11.4 13.1-31.2 14.6-44.6 3.5L480 197.7V448c0 35.3-28.7 64-64 64H224c-35.3 0-64-28.7-64-64V197.7l-51.5 42.9c-13.3 11.1-33.1 9.6-44.6-3.5l-56-64c-5.7-6.5-8.5-15-7.8-23.6s4.8-16.6 11.4-22.1L137.7 22.3C155 7.9 176.7 0 199.2 0h12.6z">
+                </path>
+              </svg></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 uppercase">1. Shop Custom Merch</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Browse our exclusive collection or customize your own gear.
+            High-quality prints powered by Printful.</p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm text-center group hover:-translate-y-1 transition-transform duration-300">
+          <div
+            class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-ticket w-8" aria-hidden="true" focusable="false"
+                data-prefix="fas" data-icon="ticket" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M64 64C28.7 64 0 92.7 0 128v64c0 8.8 7.4 15.7 15.7 18.6C34.5 217.1 48 235 48 256s-13.5 38.9-32.3 45.4C7.4 304.3 0 311.2 0 320v64c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V320c0-8.8-7.4-15.7-15.7-18.6C541.5 294.9 528 277 528 256s13.5-38.9 32.3-45.4c8.3-2.9 15.7-9.8 15.7-18.6V128c0-35.3-28.7-64-64-64H64zm64 112l0 160c0 8.8 7.2 16 16 16H432c8.8 0 16-7.2 16-16V176c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM96 160c0-17.7 14.3-32 32-32H448c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H128c-17.7 0-32-14.3-32-32V160z">
+                </path>
+              </svg></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 uppercase">2. Earn Entries</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">Get <strong>10 Entries</strong> for every $1 you spend. Plus,
+            earn bonus points on Temu affiliate purchases.</p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div
+          class="bg-white p-8 rounded-2xl shadow-sm text-center group hover:-translate-y-1 transition-transform duration-300">
+          <div
+            class="w-16 h-16 bg-black text-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6 group-hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-trophy w-8" aria-hidden="true" focusable="false"
+                data-prefix="fas" data-icon="trophy" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M400 0H176c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8H24C10.7 64 0 74.7 0 88c0 92.6 33.5 157 78.5 200.7c44.3 43.1 98.3 64.8 138.1 75.8c23.4 6.5 39.4 26 39.4 45.6c0 20.9-17 37.9-37.9 37.9H192c-17.7 0-32 14.3-32 32s14.3 32 32 32H384c17.7 0 32-14.3 32-32s-14.3-32-32-32H357.9C337 448 320 431 320 410.1c0-19.6 15.9-39.2 39.4-45.6c39.9-11 93.9-32.7 138.2-75.8C542.5 245 576 180.6 576 88c0-13.3-10.7-24-24-24H446.4c.3-5.2 .5-10.4 .7-15.8C448.1 21.8 426.5 0 400 0zM48.9 112h84.4c9.1 90.1 29.2 150.3 51.9 190.6c-24.9-11-50.8-26.5-73.2-48.3c-32-31.1-58-76-63-142.3zM464.1 254.3c-22.4 21.8-48.3 37.3-73.2 48.3c22.7-40.3 42.8-100.5 51.9-190.6h84.4c-5.1 66.3-31.1 111.2-63 142.3z">
+                </path>
+              </svg></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 uppercase">3. Win Big</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">You are automatically entered into the draw. Watch live as we
+            announce the lucky winner!</p>
+        </div>
+
+        <!-- Benefit 4 (New for Merchants) -->
+        <div
+          class="bg-black text-white p-8 rounded-2xl shadow-sm text-center group hover:-translate-y-1 transition-transform duration-300 relative overflow-hidden">
+          <div class="absolute inset-0 bg-brand-accent opacity-0 group-hover:opacity-10 transition-opacity"></div>
+          <div
+            class="w-16 h-16 border-2 border-white rounded-full flex items-center justify-center text-2xl mx-auto mb-6">
+            <i data-fa-i2svg=""><svg class="svg-inline--fa fa-store w-8" aria-hidden="true" focusable="false"
+                data-prefix="fas" data-icon="store" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M547.6 103.8L490.3 13.1C485.2 5 476.1 0 466.4 0H109.6C99.9 0 90.8 5 85.7 13.1L28.3 103.8c-29.6 46.8-3.4 111.9 51.9 119.4c4 .5 8.1 .8 12.1 .8c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.1 0 49.3-11.4 65.2-29c15.9 17.6 39.1 29 65.2 29c26.2 0 49.3-11.4 65.2-29c16 17.6 39.1 29 65.2 29c4.1 0 8.1-.3 12.1-.8c55.5-7.4 81.8-72.5 52.1-119.4zM499.7 254.9l-.1 0c-5.3 .7-10.7 1.1-16.2 1.1c-12.4 0-24.3-1.9-35.4-5.3V384H128V250.6c-11.2 3.5-23.2 5.4-35.6 5.4c-5.5 0-11-.4-16.3-1.1l-.1 0c-4.1-.6-8.1-1.3-12-2.3V384v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V384 252.6c-4 1-8 1.8-12.3 2.3z">
+                </path>
+              </svg></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 uppercase">Launch Your Store</h3>
+          <p class="text-gray-300 text-sm leading-relaxed">Podcasters &amp; Merchants: Open a store identical to this
+            one
+            and sell your own custom merch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="featured-products" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div>
+          <h2 class="text-2xl xl:text-4xl font-bold mb-2 uppercase">Featured Collection</h2>
+          <p class="text-gray-500">Premium gear that gets you closer to the prize.</p>
+        </div>
+        <a href="#"
+          class="hidden md:inline-flex items-center font-bold border-b-2 border-black pb-1 hover:text-brand-accent hover:border-brand-accent transition-colors">
+          View All Products
+          <i class="ml-2"><svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+              <path fill="currentColor"
+                d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+              </path>
+            </svg>
+          </i>
+        </a>
+      </div>
+
+      <!-- Products Grid (2 Rows) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Product 1 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&amp;w=1780&amp;auto=format&amp;fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="T-Shirt">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              300 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Iconic Logo Tee
+          </h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$30.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&amp;w=1887&amp;auto=format&amp;fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="Hoodie">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              650 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Premium Heavy
+            Hoodie</h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$65.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1964&auto=format&fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="Hat">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              250 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Snapback Cap</h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$25.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&amp;w=2070&amp;auto=format&amp;fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="Sneakers">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              1200 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Limited Edition
+            Kicks</h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$65.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <!-- Product 5 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&amp;w=1964&amp;auto=format&amp;fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="T-Shirt Design">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              350 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Vintage Moto Tee
+          </h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$35.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1964&auto=format&fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="Jacket">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              850 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Track Jacket</h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$85.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&amp;w=1936&amp;auto=format&amp;fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="Backpack">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              450 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Tech Backpack
+          </h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$45.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="group">
+          <div class="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5] mb-4">
+            <img
+              src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34?q=80&amp;w=1887&amp;auto=format&amp;fit=crop"
+              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              alt="Water Bottle">
+            <div class="absolute top-3 right-3 bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+              200 ENTRIES
+            </div>
+            <button
+              class="absolute bottom-4 left-4 right-4 bg-white text-black font-bold py-3 rounded-btn opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all shadow-lg rounded-full">
+              Add to Cart
+            </button>
+          </div>
+          <h3 class="font-bold text-lg mb-1 group-hover:text-brand-accent transition-colors uppercase">Steel Water
+            Bottle</h3>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-900 font-medium">$20.00</span>
+            <div class="flex text-yellow-400 text-xs">
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+              <svg class="w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="currentColor"
+                  d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 md:hidden">
+        <a href="#"
+          class="inline-flex items-center font-bold border-b-2 border-black pb-1 hover:text-brand-accent hover:border-brand-accent transition-colors">
+          View All Products <i class="ml-2" data-fa-i2svg=""><svg class="svg-inline--fa fa-arrow-right"
+              aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" role="img"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+              </path>
+            </svg></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative bg-black w-full bg-cover bg-center bg-no-repeat py-16"
+    style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop');">
+    <div class="bg-black/70 absolute inset-0"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 text-center text-white">
+
+      <!-- Heading -->
+      <h2 class="text-3xl md:text-4xl font-extrabold">Win $10,000 Cash Prize!</h2>
+      <p class="mt-2 text-sm md:text-base opacity-90">
+        Enter for your chance to win $10,000 cash! Multiple ways to enter and increase your chances.
+      </p>
+
+      <!-- Timer -->
+      <div class="flex justify-center gap-4 mt-8">
+
+        <!-- Days -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">27</span>
+          <p class="text-xs font-semibold uppercase mt-1">Days</p>
+        </div>
+
+        <!-- Hours -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">12</span>
+          <p class="text-xs font-semibold uppercase mt-1">Hours</p>
+        </div>
+
+        <!-- Minutes -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">06</span>
+          <p class="text-xs font-semibold uppercase mt-1">Minutes</p>
+        </div>
+
+        <!-- Seconds -->
+        <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
+          <span class="text-3xl font-bold">45</span>
+          <p class="text-xs font-semibold uppercase mt-1">Seconds</p>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <button
+        class="mt-10 bg-red-600 hover:bg-red-700 text-white font-medium text-sm md:text-base px-8 py-3 rounded shadow-md transition">
+        Get Entries
+      </button>
+
+    </div>
+  </section>
+
+
+
+  <section id="stats-counter" class="py-16 bg-black text-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-5xl font-bold font-display mb-2">250K+</div>
+          <div class="text-gray-400 text-sm uppercase tracking-wider">Total Entries</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold font-display mb-2">$500K</div>
+          <div class="text-gray-400 text-sm uppercase tracking-wider">Prize Value</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold font-display mb-2">15K+</div>
+          <div class="text-gray-400 text-sm uppercase tracking-wider">Happy Customers</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold font-display mb-2">47</div>
+          <div class="text-gray-400 text-sm uppercase tracking-wider">Winners So Far</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="testimonials" class="py-20 bg-brand-gray">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl xl:text-4xl font-bold mb-3 uppercase">What Our Winners Say</h2>
+        <p class="text-gray-600">Real stories from real people who won big</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col">
+          <div class="flex text-yellow-400 mb-4">
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+          </div>
+          <p class="text-gray-700 mb-6 leading-relaxed">"I couldn't believe it when they called my name! Bought a hoodie
+            and won a dream car. This is legit!"</p>
+          <div class="flex items-center gap-3 mt-auto">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg"
+              class="w-12 h-12 rounded-full object-cover" alt="Winner">
+            <div>
+              <div class="font-bold">Marcus T.</div>
+              <div class="text-sm text-gray-500">Winner - March 2024</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col">
+          <div class="flex text-yellow-400 mb-4">
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+          </div>
+          <p class="text-gray-700 mb-6 leading-relaxed">"Quality merch AND a chance to win? Best purchase ever. The gear
+            is top-notch too!"</p>
+          <div class="flex items-center gap-3 mt-auto">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg"
+              class="w-12 h-12 rounded-full object-cover" alt="Customer">
+            <div>
+              <div class="font-bold">Sarah K.</div>
+              <div class="text-sm text-gray-500">Winner - January 2024</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col">
+          <div class="flex text-yellow-400 mb-4">
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4 text-gray-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+            <svg class="w-4 text-gray-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor"
+                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
+              </path>
+            </svg>
+          </div>
+          <p class="text-gray-700 mb-6 leading-relaxed">"Started my own store as a podcaster. Sales are amazing and my
+            fans love entering the giveaways!"</p>
+          <div class="flex items-center gap-3 mt-auto">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg"
+              class="w-12 h-12 rounded-full object-cover" alt="Podcaster">
+            <div>
+              <div class="font-bold">James R.</div>
+              <div class="text-sm text-gray-500">Podcaster Partner</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="cta-section" class="relative h-[500px] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&amp;w=2070&amp;auto=format&amp;fit=crop"
+        class="w-full h-full object-cover" alt="Join Now">
+      <div class="absolute inset-0 bg-black/70"></div>
+    </div>
+    <div class="container mx-auto px-4 relative z-10 text-center text-white">
+      <h2 class="text-5xl md:text-6xl font-bold mb-6 uppercase">Ready to Win?</h2>
+      <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto font-light">Sign up now and get <span
+          class="font-bold text-brand-accent">100 FREE ENTRIES</span> instantly. Every purchase multiplies your chances.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          class="bg-brand-accent hover:bg-red-700 text-white px-10 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all transform hover:scale-105 rounded-full">
+          Create Free Account
+        </button>
+        <button
+          class="bg-white hover:bg-gray-100 text-black px-10 py-4 rounded-btn font-bold text-lg uppercase tracking-wider transition-all rounded-full">
+          Browse Store
+        </button>
+      </div>
+    </div>
+  </section>
+  <footer id="footer" class="bg-brand-dark text-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold text-lg">
+              50
+            </div>
+            <span class="text-2xl font-bold font-display">50FIFTY<span class="text-brand-accent">.WIN</span></span>
+          </div>
+          <p class="text-gray-400 text-sm">Shop custom merch, earn entries, and win incredible prizes. Your dream is one
+            purchase away.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shop All</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">How It Works</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Past Winners</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Current Prizes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">For Partners</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Podcaster Stores</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Merchant Program</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Affiliate Info</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">Support</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Info</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-gray-500 text-sm">© 2024 50fifty.win. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-facebook-f w-3" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                </path>
+              </svg></i>
+          </a>
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-twitter w-4" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                </path>
+              </svg>
+            </i>
+          </a>
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-instagram w-4" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                </path>
+              </svg>
+            </i>
+          </a>
+          <a href="#"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-accent transition-colors">
+            <i data-fa-i2svg="">
+              <svg class="svg-inline--fa fa-youtube w-4 aria-hidden=" true" focusable="false" data-prefix="fab"
+                data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z">
+                </path>
+              </svg>
+            </i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+<script>
+  $(document).ready(function () {
+    /* COMMON TOGGLES */
+    $(document).on('click', '.js--toggle', function (e) {
+      e.preventDefault();
+      $($(this).attr('href')).toggleClass('is-visible');
+      $(this).toggleClass('is-active');
+      $('html').toggleClass('is--toggle');
+    });
+  });
+</script>
+
+</html>
