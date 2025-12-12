@@ -68,47 +68,77 @@ get_header();
     </div>
   </section>
   
-  <?php
-// SAFE SWEEPSTAKE QUERY (prevent critical errors)
+<?php
+// Convert admin datetime-local format to valid MySQL format
+function normalize_datetime($dt) {
+    if (strpos($dt, 'T') !== false) {
+        return str_replace('T', ' ', $dt) . ':00';
+    }
+    return $dt;
+}
 
+// Today's date in MySQL format
+$today = current_time('mysql'); // 2025-01-20 14:05:00
+
+// SAFE QUERY FOR ACTIVE SWEEPSTAKE
 $args = array(
     'post_type'      => 'sweepstake',
     'posts_per_page' => 1,
     'orderby'        => 'meta_value',
     'order'          => 'ASC',
-    'meta_key'       => 'start_date',   // Must exist
-    'meta_type'      => 'DATETIME',     // PREVENT crashes
+    'meta_key'       => '_wpsw_start_date',
+    'meta_type'      => 'DATETIME',
+
     'meta_query'     => array(
+        'relation' => 'AND',
+
+        // STARTED (today or past)
         array(
-            'key'     => 'status',
-            'value'   => 'scheduled',
-            'compare' => '='
-        )
+            'key'     => '_wpsw_start_date',
+            'value'   => $today,
+            'compare' => '<=',
+            'type'    => 'DATETIME'
+        ),
+
+        // NOT FINISHED (today or future)
+        array(
+            'key'     => '_wpsw_end_date',
+            'value'   => $today,
+            'compare' => '>=',
+            'type'    => 'DATETIME'
+        ),
     )
 );
 
 $sw_query = new WP_Query($args);
 
-// DEFAULT VALUES – prevents critical error if nothing found
+// DEFAULT VALUES
 $sw_title = "Upcoming Giveaway";
 $sw_desc  = "Stay tuned!";
 $end_date = "";
 $has_sweepstake = false;
 
-if ($sw_query->have_posts()) :
+// DEBUG OUTPUT
+// echo "<pre style='color:red'>";
+// echo "FOUND POSTS: " . $sw_query->found_posts . "\n";
+// echo "</pre>";
 
-    $has_sweepstake = true;
+if ($sw_query->have_posts()) {
     $sw_query->the_post();
 
+    $has_sweepstake = true;
     $sw_title = get_the_title();
     $sw_desc  = get_the_excerpt();
-    $end_date = get_post_meta(get_the_ID(), 'end_date', true);
 
-endif;
+    // normalize end date for JS countdown
+    $raw_end = get_post_meta(get_the_ID(), '_wpsw_end_date', true);
+    $end_date = normalize_datetime($raw_end);
+}
 
 wp_reset_postdata();
 ?>
 
+<?php if ($has_sweepstake && !empty($end_date)) : ?>
 <section class="w-full bg-brand-accent py-8">
     <div class="container mx-auto px-4">
       <div class="flex flex-col xl:flex-row items-center justify-between gap-4">
@@ -128,7 +158,8 @@ wp_reset_postdata();
         </div>
 
         <!-- Timer -->
-        <div id="countdown" class="flex gap-4 text-center" data-end="<?php echo esc_attr($end_date); ?>">
+        <div id="countdown" class="flex gap-4 text-center" 
+             data-end="<?php echo esc_attr($end_date); ?>">
 
           <div class="bg-white rounded-xl px-4 py-3 shadow-md text-center">
             <span id="days" class="block text-2xl font-bold text-gray-800">--</span>
@@ -154,6 +185,8 @@ wp_reset_postdata();
       </div>
     </div>
 </section>
+<?php endif; ?>
+
 
   <section id="benefits" class="py-16 bg-brand-gray border-b border-gray-200">
     <div class="container mx-auto px-4">
@@ -341,44 +374,111 @@ $featured_products = new WP_Query($args);
     </div>
 </section>
 
-  <section class="relative bg-black w-full bg-cover bg-center bg-no-repeat py-16"
-    style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop');">
+  <?php
+// ---- SETTINGS ----
+// Get active sweepstake: start_date <= now AND end_date >= now
+
+$today = current_time('mysql');
+
+$args = [
+    'post_type'      => 'sweepstake',
+    'posts_per_page' => 1,
+    'orderby'        => 'meta_value',
+    'order'          => 'ASC',
+    'meta_key'       => '_wpsw_start_date',
+    'meta_type'      => 'DATETIME',
+
+    'meta_query'     => [
+        'relation' => 'AND',
+        [
+            'key'     => '_wpsw_start_date',
+            'value'   => $today,
+            'compare' => '<=',
+            'type'    => 'DATETIME'
+        ],
+        [
+            'key'     => '_wpsw_end_date',
+            'value'   => $today,
+            'compare' => '>=',
+            'type'    => 'DATETIME'
+        ]
+    ]
+];
+
+$sw_query = new WP_Query($args);
+
+// DEFAULTS
+$show_section = false;
+$sw_title     = "Win Big!";
+$sw_desc      = "Enter now for your chance to win!";
+$end_date     = "";
+$bg_image     = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop";
+
+// If sweepstake found
+if ($sw_query->have_posts()) {
+    $sw_query->the_post();
+
+    $show_section = true;
+    $sw_title = get_the_title();
+    $sw_desc  = get_the_excerpt();
+
+    // End date
+    $raw = get_post_meta(get_the_ID(), '_wpsw_end_date', true);
+    $end_date = $raw ? $raw . " 23:59:59" : "";
+
+    // Featured image becomes background
+    if (has_post_thumbnail()) {
+        $bg_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+    }
+}
+wp_reset_postdata();
+
+if ($show_section && !empty($end_date)) :
+?>
+
+<section class="relative bg-black w-full bg-cover bg-center bg-no-repeat py-16"
+    style="background-image: url('<?php echo esc_url($bg_image); ?>');">
+    
     <div class="bg-black/70 absolute inset-0"></div>
 
     <div class="relative max-w-5xl mx-auto px-4 text-center text-white">
 
       <!-- Heading -->
-      <h2 class="text-3xl md:text-4xl font-extrabold">Win $10,000 Cash Prize!</h2>
+      <h2 class="text-3xl md:text-4xl font-extrabold"><?php echo esc_html($sw_title); ?></h2>
+
       <p class="mt-2 text-sm md:text-base opacity-90">
-        Enter for your chance to win $10,000 cash! Multiple ways to enter and increase your chances.
+        <?php echo esc_html($sw_desc); ?>
       </p>
 
       <!-- Timer -->
-      <div class="flex justify-center gap-4 mt-8">
+      <div id="sweep-timer" 
+           class="flex justify-center gap-4 mt-8"
+           data-end="<?php echo esc_attr($end_date); ?>">
 
         <!-- Days -->
         <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
-          <span class="text-3xl font-bold">27</span>
+          <span id="t-days" class="text-3xl font-bold">--</span>
           <p class="text-xs font-semibold uppercase mt-1">Days</p>
         </div>
 
         <!-- Hours -->
         <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
-          <span class="text-3xl font-bold">12</span>
+          <span id="t-hours" class="text-3xl font-bold">--</span>
           <p class="text-xs font-semibold uppercase mt-1">Hours</p>
         </div>
 
         <!-- Minutes -->
         <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
-          <span class="text-3xl font-bold">06</span>
+          <span id="t-min" class="text-3xl font-bold">--</span>
           <p class="text-xs font-semibold uppercase mt-1">Minutes</p>
         </div>
 
         <!-- Seconds -->
         <div class="bg-white text-black rounded-md px-6 py-4 shadow-md text-center">
-          <span class="text-3xl font-bold">45</span>
+          <span id="t-sec" class="text-3xl font-bold">--</span>
           <p class="text-xs font-semibold uppercase mt-1">Seconds</p>
         </div>
+
       </div>
 
       <!-- Button -->
@@ -388,7 +488,41 @@ $featured_products = new WP_Query($args);
       </button>
 
     </div>
-  </section>
+</section>
+
+<!-- Countdown Script -->
+<script>
+const timerBox = document.getElementById("sweep-timer");
+if (timerBox) {
+    const end = new Date(timerBox.dataset.end).getTime();
+
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = end - now;
+
+        if (diff <= 0) {
+            document.getElementById("t-days").innerText = "0";
+            document.getElementById("t-hours").innerText = "0";
+            document.getElementById("t-min").innerText = "0";
+            document.getElementById("t-sec").innerText = "0";
+            return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("t-days").innerText = d;
+        document.getElementById("t-hours").innerText = h;
+        document.getElementById("t-min").innerText = m;
+        document.getElementById("t-sec").innerText = s;
+    }, 1000);
+}
+</script>
+
+<?php endif; ?>
+
 
 
 

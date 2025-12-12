@@ -549,6 +549,32 @@ $products_query = new WP_Query( $products_args );
         </div>
     </section>
 
+<section class="vendor-sweepstakes-section">
+
+    <!-- Vendor Sweepstake List -->
+    <div class="vendor-list">
+        <?php echo do_shortcode('[sweepstake_vendor_list]'); ?>
+    </div>
+
+    <!-- Vendor Sweepstake Create Form -->
+    <div class="vendor-form mt-6">
+        <?php echo do_shortcode('[sweepstake_vendor_form]'); ?>
+    </div>
+
+    <!-- Sweepstake Winners -->
+    <div class="vendor-winners mt-6">
+        <?php echo do_shortcode('[sweepstake_winners]'); ?>
+    </div>
+
+    <!-- Specific Sweepstake Winners -->
+    <div class="vendor-winners-specific mt-6">
+        <?php echo do_shortcode('[sweepstake_winners sweepstake_id="123"]'); ?>
+    </div>
+
+</section>
+
+
+
 </div>
 
 <?php
