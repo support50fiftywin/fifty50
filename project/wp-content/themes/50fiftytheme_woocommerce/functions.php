@@ -104,7 +104,90 @@ function fifty_customizer_settings($wp_customize) {
 add_action('customize_register', 'fifty_customizer_settings');
 
 
+// Register Testimonials Custom Post Type
+function sweepstake_register_testimonials_cpt() {
 
+    $labels = array(
+        'name'               => 'Testimonials',
+        'singular_name'      => 'Testimonial',
+        'menu_name'          => 'Testimonials',
+        'name_admin_bar'     => 'Testimonial',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Testimonial',
+        'new_item'           => 'New Testimonial',
+        'edit_item'          => 'Edit Testimonial',
+        'view_item'          => 'View Testimonial',
+        'all_items'          => 'All Testimonials',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'menu_icon'          => 'dashicons-star-filled',
+        'supports'           => array('title', 'editor', 'thumbnail'),
+        'has_archive'        => false,
+        'rewrite'            => array('slug' => 'testimonials'),
+        'show_in_rest'       => true,
+    );
+
+    register_post_type('testimonial', $args);
+}
+add_action('init', 'sweepstake_register_testimonials_cpt');
+
+// Add Meta Boxes
+function testimonial_add_custom_meta_box() {
+    add_meta_box(
+        'testimonial_meta',
+        'Testimonial Details',
+        'testimonial_meta_callback',
+        'testimonial',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'testimonial_add_custom_meta_box');
+
+function testimonial_meta_callback($post) {
+
+    $rating = get_post_meta($post->ID, 'rating', true);
+    $customer_name = get_post_meta($post->ID, 'customer_name', true);
+    $label = get_post_meta($post->ID, 'label', true);
+
+    ?>
+    <p>
+        <label><strong>Star Rating (1–5):</strong></label><br>
+        <input type="number" name="rating" min="1" max="5" value="<?php echo esc_attr($rating); ?>">
+    </p>
+
+    <p>
+        <label><strong>Customer Name:</strong></label><br>
+        <input type="text" name="customer_name" value="<?php echo esc_attr($customer_name); ?>" style="width:100%;">
+    </p>
+
+    <p>
+        <label><strong>Label (Winner – Month Year / Podcaster Partner):</strong></label><br>
+        <input type="text" name="label" value="<?php echo esc_attr($label); ?>" style="width:100%;">
+    </p>
+    <?php
+}
+
+// Save Meta Fields
+function testimonial_save_meta_fields($post_id) {
+
+    if (isset($_POST['rating'])) {
+        update_post_meta($post_id, 'rating', sanitize_text_field($_POST['rating']));
+    }
+
+    if (isset($_POST['customer_name'])) {
+        update_post_meta($post_id, 'customer_name', sanitize_text_field($_POST['customer_name']));
+    }
+
+    if (isset($_POST['label'])) {
+        update_post_meta($post_id, 'label', sanitize_text_field($_POST['label']));
+    }
+
+}
+add_action('save_post', 'testimonial_save_meta_fields');
 
 
 

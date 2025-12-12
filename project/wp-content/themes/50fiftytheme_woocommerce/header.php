@@ -68,7 +68,10 @@
       </div>
 
       <!-- Login -->
-      <a href="<?php echo wp_login_url(); ?>" class="text-sm uppercase hover:text-brand-accent">Login</a>
+    <a href="<?php echo wc_get_page_permalink('myaccount'); ?>" class="text-sm uppercase hover:text-brand-accent">
+    Login
+</a>
+
 
       <!-- WooCommerce Cart -->
       <?php if (class_exists('WooCommerce')) : ?>

@@ -554,127 +554,60 @@ if (timerBox) {
         <h2 class="text-2xl xl:text-4xl font-bold mb-3 uppercase">What Our Winners Say</h2>
         <p class="text-gray-600">Real stories from real people who won big</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col">
-          <div class="flex text-yellow-400 mb-4">
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed">"I couldn't believe it when they called my name! Bought a hoodie
-            and won a dream car. This is legit!"</p>
-          <div class="flex items-center gap-3 mt-auto">
-            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-2.jpg"
-              class="w-12 h-12 rounded-full object-cover" alt="Winner">
-            <div>
-              <div class="font-bold">Marcus T.</div>
-              <div class="text-sm text-gray-500">Winner - March 2024</div>
-            </div>
-          </div>
+      <?php
+$loop = new WP_Query(array(
+    'post_type' => 'testimonial',
+    'posts_per_page' => -1,
+));
+?>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+<?php while ($loop->have_posts()) : $loop->the_post(); ?>
+
+    <?php
+        $rating = get_post_meta(get_the_ID(), 'rating', true);
+        $customer_name = get_post_meta(get_the_ID(), 'customer_name', true);
+        $label = get_post_meta(get_the_ID(), 'label', true);
+        $image = get_the_post_thumbnail_url(get_the_ID(), 'medium') ?: 'default.jpg';
+    ?>
+
+    <div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col">
+
+        <!-- Star Rating -->
+        <div class="flex text-yellow-400 mb-4">
+            <?php for ($i = 1; $i <= 5; $i++): ?>
+                <svg class="w-4 <?php echo $i <= $rating ? '' : 'text-gray-300'; ?>" 
+                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor"
+                    d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 
+                    150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 
+                    7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 
+                    31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 
+                    23.9 4.9 33.8-2.3s14.9-19.3 
+                    12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 
+                    7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+                </svg>
+            <?php endfor; ?>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col">
-          <div class="flex text-yellow-400 mb-4">
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed">"Quality merch AND a chance to win? Best purchase ever. The gear
-            is top-notch too!"</p>
-          <div class="flex items-center gap-3 mt-auto">
-            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-5.jpg"
-              class="w-12 h-12 rounded-full object-cover" alt="Customer">
+        <!-- Testimonial Text -->
+        <p class="text-gray-700 mb-6 leading-relaxed"><?php echo get_the_content(); ?></p>
+
+        <div class="flex items-center gap-3 mt-auto">
+            <img src="<?php echo $image; ?>" class="w-12 h-12 rounded-full object-cover" alt="">
             <div>
-              <div class="font-bold">Sarah K.</div>
-              <div class="text-sm text-gray-500">Winner - January 2024</div>
+                <div class="font-bold"><?php echo $customer_name; ?></div>
+                <div class="text-sm text-gray-500"><?php echo $label; ?></div>
             </div>
-          </div>
         </div>
 
-        <div class="bg-white p-8 rounded-2xl shadow-sm flex flex-col">
-          <div class="flex text-yellow-400 mb-4">
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4 text-gray-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-            <svg class="w-4 text-gray-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="currentColor"
-                d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z">
-              </path>
-            </svg>
-          </div>
-          <p class="text-gray-700 mb-6 leading-relaxed">"Started my own store as a podcaster. Sales are amazing and my
-            fans love entering the giveaways!"</p>
-          <div class="flex items-center gap-3 mt-auto">
-            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-8.jpg"
-              class="w-12 h-12 rounded-full object-cover" alt="Podcaster">
-            <div>
-              <div class="font-bold">James R.</div>
-              <div class="text-sm text-gray-500">Podcaster Partner</div>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+
+<?php endwhile; wp_reset_query(); ?>
+
+</div>
+
     </div>
   </section>
   <section id="cta-section" class="relative h-[500px] flex items-center overflow-hidden">
